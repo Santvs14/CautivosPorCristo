@@ -1,0 +1,428 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    
+}
+
+nav ul {
+                list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+}
+
+
+
+
+
+ nav ul li {
+            margin: 0 10px;
+        }
+
+nav a {
+               color: white;
+            padding: 10px 20px;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            }
+
+nav a:hover {
+            background: #1D84EA
+}
+
+main {
+    padding: 2em;
+    text-align: center;
+}
+
+
+
+
+.styled-paragraph {
+    font-family: 'Roboto', sans-serif; /* Cambia a una fuente moderna y limpia */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más grande para mejor legibilidad */
+    line-height: 1.6; /* Altura de línea para espaciar bien las líneas */
+    color: #444; /* Color de texto suave */
+    margin: 1em 0; /* Espaciado entre párrafos */
+    text-align: justify; /* Justificar el texto para un look más ordenado */
+    max-width: 800px; /* Ancho máximo para limitar la longitud de la línea */
+    margin-left: auto;
+    top: -16em;
+    position: relative;
+    margin-right: auto; /* Centrar el párrafo en la página */
+    
+    padding: 0 1em; /* Agregar relleno lateral */
+    border-left: 4px solid #ff6347; /* Agregar una barra lateral de color */
+    padding-left: 1em; /* Espacio entre la barra y el texto */
+    background-color: #f9f9f9; /* Fondo suave para diferenciar el párrafo del fondo de la página */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+
+.styled-paragraph2 {
+    font-family: 'Roboto', sans-serif; /* Cambia a una fuente moderna y limpia */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más grande para mejor legibilidad */
+    line-height: 1.6; /* Altura de línea para espaciar bien las líneas */
+    color: #444; /* Color de texto suave */
+    margin: 1em 0; /* Espaciado entre párrafos */
+    text-align: justify; /* Justificar el texto para un look más ordenado */
+    max-width: 800px; /* Ancho máximo para limitar la longitud de la línea */
+    margin-left: auto;
+    top: -15em;
+    position: relative;
+    margin-right: auto; /* Centrar el párrafo en la página */
+    padding: 0 1em; /* Agregar relleno lateral */
+    border-left: 4px solid #ff6347; /* Agregar una barra lateral de color */
+    padding-left: 1em; /* Espacio entre la barra y el texto */
+    background-color: #f9f9f9; /* Fondo suave para diferenciar el párrafo del fondo de la página */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.styled-paragraph3 {
+    font-family: 'Roboto', sans-serif; /* Cambia a una fuente moderna y limpia */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más grande para mejor legibilidad */
+    line-height: 1.6; /* Altura de línea para espaciar bien las líneas */
+    color: #444; /* Color de texto suave */
+    margin: 1em 0; /* Espaciado entre párrafos */
+    text-align: justify; /* Justificar el texto para un look más ordenado */
+    max-width: 800px; /* Ancho máximo para limitar la longitud de la línea */
+    margin-left: auto;
+    top: -15em;
+    position: relative;
+    margin-right: auto; /* Centrar el párrafo en la página */
+    padding: 0 1em; /* Agregar relleno lateral */
+    border-left: 4px solid #ff6347; /* Agregar una barra lateral de color */
+    padding-left: 1em; /* Espacio entre la barra y el texto */
+    background-color: #f9f9f9; /* Fondo suave para diferenciar el párrafo del fondo de la página */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.styled-paragraph4 {
+    font-family: 'Roboto', sans-serif; /* Cambia a una fuente moderna y limpia */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más grande para mejor legibilidad */
+    line-height: 1.6; /* Altura de línea para espaciar bien las líneas */
+    color: #444; /* Color de texto suave */
+    margin: 1em 0; /* Espaciado entre párrafos */
+    text-align: justify; /* Justificar el texto para un look más ordenado */
+    max-width: 800px; /* Ancho máximo para limitar la longitud de la línea */
+    margin-left: auto;
+    top: -15em;
+    position: relative; 
+    margin-right: auto; /* Centrar el párrafo en la página */
+    padding: 0 1em; /* Agregar relleno lateral */
+    border-left: 4px solid #ff6347; /* Agregar una barra lateral de color */
+    padding-left: 1em; /* Espacio entre la barra y el texto */
+    background-color: #f9f9f9; /* Fondo suave para diferenciar el párrafo del fondo de la página */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.styled-paragraph5 {
+    font-family: 'Roboto', sans-serif; /* Cambia a una fuente moderna y limpia */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más grande para mejor legibilidad */
+    line-height: 1.6; /* Altura de línea para espaciar bien las líneas */
+    color: #444; /* Color de texto suave */
+    margin: 1em 0; /* Espaciado entre párrafos */
+    text-align: justify; /* Justificar el texto para un look más ordenado */
+    max-width: 800px; /* Ancho máximo para limitar la longitud de la línea */
+    margin-left: auto;
+    top: -15em;
+    position: relative; 
+    margin-right: auto; /* Centrar el párrafo en la página */
+    padding: 0 1em; /* Agregar relleno lateral */
+    border-left: 4px solid #ff6347; /* Agregar una barra lateral de color */
+    padding-left: 1em; /* Espacio entre la barra y el texto */
+    background-color: #f9f9f9; /* Fondo suave para diferenciar el párrafo del fondo de la página */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.styled-paragraph6 {
+    font-family: 'Roboto', sans-serif; /* Cambia a una fuente moderna y limpia */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más grande para mejor legibilidad */
+    line-height: 1.6; /* Altura de línea para espaciar bien las líneas */
+    color: #444; /* Color de texto suave */
+    margin: 1em 0; /* Espaciado entre párrafos */
+    text-align: justify; /* Justificar el texto para un look más ordenado */
+    max-width: 800px; /* Ancho máximo para limitar la longitud de la línea */
+    margin-left: auto;
+    top: -15em;
+    position: relative; 
+    margin-right: auto; /* Centrar el párrafo en la página */
+    padding: 0 1em; /* Agregar relleno lateral */
+    border-left: 4px solid #ff6347; /* Agregar una barra lateral de color */
+    padding-left: 1em; /* Espacio entre la barra y el texto */
+    background-color: #f9f9f9; /* Fondo suave para diferenciar el párrafo del fondo de la página */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.styled-paragraph7 {
+    font-family: 'Roboto', sans-serif; /* Cambia a una fuente moderna y limpia */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más grande para mejor legibilidad */
+    line-height: 1.6; /* Altura de línea para espaciar bien las líneas */
+    color: #444; /* Color de texto suave */
+    margin: 1em 0; /* Espaciado entre párrafos */
+    text-align: justify; /* Justificar el texto para un look más ordenado */
+    max-width: 800px; /* Ancho máximo para limitar la longitud de la línea */
+    margin-left: auto;
+ top: -15em;
+    position: relative; 
+    margin-right: auto; /* Centrar el párrafo en la página */
+    padding: 0 1em; /* Agregar relleno lateral */
+    border-left: 4px solid #ff6347; /* Agregar una barra lateral de color */
+    padding-left: 1em; /* Espacio entre la barra y el texto */
+    background-color: #f9f9f9; /* Fondo suave para diferenciar el párrafo del fondo de la página */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+
+.styled-paragraph8 {
+    font-family: 'Roboto', sans-serif; /* Cambia a una fuente moderna y limpia */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más grande para mejor legibilidad */
+    line-height: 1.6; /* Altura de línea para espaciar bien las líneas */
+    color: #444; /* Color de texto suave */
+    margin: 1em 0; /* Espaciado entre párrafos */
+    text-align: justify; /* Justificar el texto para un look más ordenado */
+    max-width: 800px; /* Ancho máximo para limitar la longitud de la línea */
+    margin-left: auto;
+ top: -15em;
+    position: relative; 
+    margin-right: auto; /* Centrar el párrafo en la página */
+    padding: 0 1em; /* Agregar relleno lateral */
+    border-left: 4px solid #ff6347; /* Agregar una barra lateral de color */
+    padding-left: 1em; /* Espacio entre la barra y el texto */
+    background-color: #f9f9f9; /* Fondo suave para diferenciar el párrafo del fondo de la página */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+
+.styled-paragraph9 {
+    font-family: 'Roboto', sans-serif; /* Cambia a una fuente moderna y limpia */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más grande para mejor legibilidad */
+    line-height: 1.6; /* Altura de línea para espaciar bien las líneas */
+    color: #444; /* Color de texto suave */
+    margin: 1em 0; /* Espaciado entre párrafos */
+    text-align: justify; /* Justificar el texto para un look más ordenado */
+    max-width: 800px; /* Ancho máximo para limitar la longitud de la línea */
+    margin-left: auto;
+ top: -15em;
+    position: relative; 
+    margin-right: auto; /* Centrar el párrafo en la página */
+    padding: 0 1em; /* Agregar relleno lateral */
+    border-left: 4px solid #ff6347; /* Agregar una barra lateral de color */
+    padding-left: 1em; /* Espacio entre la barra y el texto */
+    background-color: #f9f9f9; /* Fondo suave para diferenciar el párrafo del fondo de la página */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.styled-paragraph10 {
+    font-family: 'Roboto', sans-serif; /* Cambia a una fuente moderna y limpia */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más grande para mejor legibilidad */
+    line-height: 1.6; /* Altura de línea para espaciar bien las líneas */
+    color: #444; /* Color de texto suave */
+    margin: 1em 0; /* Espaciado entre párrafos */
+    text-align: justify; /* Justificar el texto para un look más ordenado */
+    max-width: 800px; /* Ancho máximo para limitar la longitud de la línea */
+    margin-left: auto;
+ top: -15em;
+    position: relative; 
+    margin-right: auto; /* Centrar el párrafo en la página */
+    padding: 0 1em; /* Agregar relleno lateral */
+    border-left: 4px solid #ff6347; /* Agregar una barra lateral de color */
+    padding-left: 1em; /* Espacio entre la barra y el texto */
+    background-color: #f9f9f9; /* Fondo suave para diferenciar el párrafo del fondo de la página */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+
+
+section {
+    margin: 2em 0;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.fade-in {
+        opacity: 0;
+    animation: fadeIn ease 2s;
+    animation-fill-mode: forwards;
+
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+.media-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2em;
+    margin: 2em 0;
+}
+
+.media-item {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.media-item h2 {
+    margin-bottom: 1em;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14em;
+    margin-top: 2em;
+}
+
+.grid-item1 {
+    position: relative;
+    overflow: hidden;
+    left: 16em;
+    margin-top: 5em;
+    border-radius: 8px;
+
+}
+
+.grid-item2 {
+    position: relative;
+    overflow: hidden;
+     left: 53em;
+     top: 18em;
+    border-radius: 8px;
+
+}
+
+.grid-item3 {
+    position: relative;
+    overflow: hidden;
+     right: 50em;
+     top: 50em;
+    border-radius: 8px;
+
+}
+
+
+.grid-item4 {
+    position: relative;
+    overflow: hidden;
+     right: 10em;
+     top: 70em;
+    border-radius: 8px;
+
+}
+
+
+
+.grid-item1 img {
+    width: 70%;
+    height: auto;
+    display: block;
+
+        border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.grid-item2 img {
+    width: 80%;
+    height: auto;
+    display: block;
+ margin-left: 100;
+        border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.grid-item3 img {
+    width: 90%;
+    height: auto;
+    display: block;
+ margin-left: 100;
+        border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.grid-item4 img {
+    width: 90%;
+    height: auto;
+    display: block;
+ margin-left: 100;
+        border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.grid-item1:hover img {
+    transform: scale(1.1);
+}
+
+.grid-item2:hover img {
+    transform: scale(1.1);
+}
+
+
+.grid-item3:hover img {
+    transform: scale(1.1);
+}
+
+.grid-item4:hover img {
+    transform: scale(1.1);
+}
+
+
+
+/* Mejora de estilos para dispositivos móviles */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+    }
+

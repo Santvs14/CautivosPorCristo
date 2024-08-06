@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transmisiones en Vivo de Facebook</title>
+  <link rel="icon" href="logof.png" type="image/png">
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(45deg, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
+      padding: 1em 0;
+      color: white;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-size: 1em;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      background: #1D84EA;
+      color: black;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em 0;
+      background: linear-gradient(45deg, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
+      color: white;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: auto;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #333;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: 0.5em;
+      letter-spacing: 1px;
+      position: relative;
+      text-align: center;
+    }
+
+    h1 span {
+      content: '';
+      width: 50px;
+      height: 4px;
+      background-color: #ff6347;
+      display: block;
+      margin: 0.5em auto 0;
+      border-radius: 2px;
+    }
+
+    .videos-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .video {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      text-align: center;
+      width: 320px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .video h3 {
+      margin: 10px 0 5px 0;
+      color: #333;
+      font-size: 1em;
+    }
+
+    .video p {
+      margin: 0 0 10px 0;
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    .video iframe {
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .video iframe:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .no-live-videos {
+      text-align: center;
+      color: #666;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="director.html">Acerca del Director</a></li>
+        <li><a href="valores.html">Valores</a></li>
+        <li><a href="proposito.html">Propósito</a></li>
+        <li><a href="musicos.html">Músicos y Colaboradores</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Transmisiones en Vivo de Facebook<span></span></h1>
+    <div id="videos-container" class="videos-container"></div>
+    <div id="no-live-videos" class="no-live-videos" style="display: none;">No hay transmisiones en vivo en estos momentos.</div>
+  </main>
+  <footer>
+    <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
+      <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const pageId = '410832475441466';
+      const accessToken = 'EAAL1N5kslU0BOZCADRPMtr8MF4pA1IRq443MATZCVvb5XVW3Gsa7qLP8UNMtHuZAa19u6hOiYzbVZCsAjBCnI4BaZCY1mXZCKixGH8Lk5jPwwDOKDrkSTfm2ZALSEe9Tf1sEZAHqCCAgaCbT4FYaNxZAvGFKuuOxTioNzOpnVpV1PM5NYnKjEURF6Bl5O';
+      const url = `https://graph.facebook.com/v12.0/${pageId}/live_videos?fields=id,title,description,embed_html,created_time&access_token=${accessToken}`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          console.log('Live videos data:', data);
+          displayVideos(data);
+        })
+        .catch(error => console.error('Error fetching live videos:', error));
+    });
+
+    function displayVideos(data) {
+      const videosContainer = document.getElementById('videos-container');
+      const noLiveVideos = document.getElementById('no-live-videos');
+
+      if (data && data.data && data.data.length > 0) {
+        data.data.forEach(video => {
+          const videoElement = document.createElement('div');
+          videoElement.className = 'video';
+
+          const videoDate = new Date(video.created_time);
+          const formattedDate = videoDate.toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+
+          videoElement.innerHTML = `
+            <h3>${video.title}</h3>
+            <p>${formattedDate}</p>
+            ${video.embed_html}
+          `;
+          videosContainer.appendChild(videoElement);
+        });
+        noLiveVideos.style.display = 'none';
+      } else {
+        noLiveVideos.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

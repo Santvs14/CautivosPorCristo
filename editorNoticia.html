@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Cautivos por Cristo</title>
+    <link rel="icon" href="logof.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
+            padding: 10px;
+            color: white;
+            padding: 1.5em 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 10px 20px;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #1D84EA;
+            color: white;
+            border-radius: 5px;
+            transform: scale(1.05);
+        }
+
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="file"],
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        .form-container button {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #1e3d7c;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #1D84EA;
+        }
+
+        .news-list {
+            margin-top: 40px;
+        }
+
+        .news-item {
+            background: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item img {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .news-item .date {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .clear-all-btn {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            top: 0.3em;
+            position: relative;
+        }
+
+        .clear-all-btn:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                                                 <img src="logof.png" alt="Logo" style="height: 50px;">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="director.html">Acerca del Director</a></li>
+                <li><a href="valores.html">Valores</a></li>
+                <li><a href="proposito.html">Propósito</a></li>
+                <li><a href="musicos.html">Músicos y Colaboradores</a></li>
+                <li><a href="noticias.html" class="active">Noticias</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>Panel de Administración</h2>
+
+            <!-- Formulario para crear y editar noticias -->
+            <form id="newsForm">
+                <input type="hidden" id="newsId">
+                <label for="title">Título:</label>
+                <input type="text" id="title" required>
+                <label for="content">Contenido:</label>
+                <textarea id="content" rows="5" required></textarea>
+                <label for="image">Imagen:</label>
+                <input type="file" id="image" accept="image/*">
+                <button type="submit">Guardar Noticia</button>
+            </form>
+
+            <!-- Botón para borrar todas las noticias -->
+            <button style="background: #333;" class="clear-all-btn" onclick="clearAllNews()">Borrar Todas las Noticias</button>
+
+            <!-- Lista de noticias existentes -->
+            <div class="news-list">
+                <h2>Noticias Existentes</h2>
+                <!-- Noticias cargadas dinámicamente aquí -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Función para guardar noticias al enviar el formulario
+        document.getElementById('newsForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const id = document.getElementById('newsId').value;
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+            const image = document.getElementById('image').files[0];
+
+            let newsList = JSON.parse(localStorage.getItem('newsList')) || [];
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                if (id) {
+                    // Modificar noticia existente
+                    const newsIndex = newsList.findIndex(news => news.id === id);
+                    if (newsIndex !== -1) {
+                        newsList[newsIndex].title = title;
+                        newsList[newsIndex].content = content;
+                        if (image) {
+                            newsList[newsIndex].image = e.target.result;
+                        }
+                    }
+                } else {
+                    // Crear nueva noticia
+                    const newNews = {
+                        id: Date.now().toString(),
+                        title: title,
+                        content: content,
+                        image: image ? e.target.result : null,
+                        date: new Date().toLocaleDateString()
+                    };
+                    newsList.push(newNews);
+                }
+
+                localStorage.setItem('newsList', JSON.stringify(newsList));
+
+                // Limpiar el formulario
+                document.getElementById('newsId').value = '';
+                document.getElementById('title').value = '';
+                document.getElementById('content').value = '';
+                document.getElementById('image').value = '';
+
+                updateNewsList();
+            };
+
+            if (image) {
+                reader.readAsDataURL(image);
+            } else {
+                // Si no se selecciona una nueva imagen, proceder sin leerla
+                if (id) {
+                    // Modificar noticia existente sin cambiar la imagen
+                    const newsIndex = newsList.findIndex(news => news.id === id);
+                    if (newsIndex !== -1) {
+                        newsList[newsIndex].title = title;
+                        newsList[newsIndex].content = content;
+                    }
+                    localStorage.setItem('newsList', JSON.stringify(newsList));
+                    updateNewsList();
+                } else {
+                    // Crear nueva noticia sin imagen
+                    reader.onload({ target: { result: null } });
+                }
+            }
+        });
+
+        // Función para actualizar la lista de noticias
+        function updateNewsList() {
+            const newsList = JSON.parse(localStorage.getItem('newsList')) || [];
+            const newsListContainer = document.querySelector('.news-list');
+            newsListContainer.innerHTML = '';
+
+            newsList.forEach(news => {
+                const newsItem = document.createElement('div');
+                newsItem.classList.add('news-item');
+                newsItem.innerHTML = `
+                    <h3>${news.title}</h3>
+                    <div class="date">Publicado el: ${news.date}</div>
+                    ${news.image ? `<img src="${news.image}" alt="Imagen de la noticia" style="max-width: 100%;">` : ''}
+                    <p>${news.content}</p>
+                    <button onclick="editNews('${news.id}')">Editar</button>
+                    <button onclick="confirmDeleteNews('${news.id}')">Eliminar</button>
+                `;
+                newsListContainer.appendChild(newsItem);
+            });
+        }
+
+        // Función para cargar los datos de una noticia en el formulario para editar
+        function editNews(id) {
+            const newsList = JSON.parse(localStorage.getItem('newsList')) || [];
+            const news = newsList.find(news => news.id === id);
+
+            if (news) {
+                document.getElementById('newsId').value = news.id;
+                document.getElementById('title').value = news.title;
+                document.getElementById('content').value = news.content;
+                document.getElementById('image').value = '';
+            }
+        }
+
+        // Función para confirmar la eliminación de una noticia
+        function confirmDeleteNews(id) {
+            if (confirm('¿Está seguro de que desea eliminar esta noticia?')) {
+                deleteNews(id);
+            }
+        }
+
+        // Función para eliminar una noticia
+        function deleteNews(id) {
+            let newsList = JSON.parse(localStorage.getItem('newsList')) || [];
+            newsList = newsList.filter(news => news.id !== id);
+            localStorage.setItem('newsList', JSON.stringify(newsList));
+            updateNewsList();
+        }
+
+        // Función para borrar todas las noticias
+        function clearAllNews() {
+            if (confirm('¿Está seguro de que desea borrar todas las noticias?')) {
+                localStorage.removeItem('newsList');
+                updateNewsList();
+            }
+        }
+
+        // Inicializar la lista de noticias al cargar la página
+        document.addEventListener('DOMContentLoaded', updateNewsList);
+    </script>
+</body>
+
+</html>

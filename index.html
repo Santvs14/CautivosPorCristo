@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cautivos por Cristo - Inicio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="icon" href="logof.png" type="image/png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+
+
+
+     .btn {
+            background: darkred;
+            color: white;
+            padding: 5px 5px;
+            text-decoration: none;
+            border-radius: 5px;
+            opacity: 0.7;
+            margin-top: 50px;
+            position: relative;
+            top: -41em;
+            left: 52em;
+
+        }
+
+        .btn:hover{
+
+             background: red;
+             color: white;
+          }
+
+
+   .nav {
+    background: black;
+    margin: 0;
+    max-height: 17px;
+        padding: 0; /* Asegura que no haya relleno adicional */
+
+
+}
+
+        #map {
+            width: 100%;
+            height: 300px;
+            background: url('map-placeholder.jpg') no-repeat center center/cover;
+        }
+
+
+
+.nav ul {
+            list-style: none;
+background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            
+            position: relative;
+            top: -5em;
+            height: 93px;
+            justify-content: center;
+
+
+        }
+
+        .nav ul li {
+            display: inline-block;
+            position: relative;
+            margin: 0 5px;
+            top: 1em;
+        }
+
+        .nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1.3em;
+        }
+
+        .nav ul li a:hover {
+            background: #1D84EA;
+            border-radius: 5px;
+        }
+
+        .submenu-items {
+            display: none;
+            left: 0;
+            background: #1e3d7c;
+            padding: 0;
+            list-style: none;
+            text-align: left;
+            min-width: 200px;
+
+        }
+
+        .submenu-items li {
+            display: block;
+
+        }
+
+        .submenu-items li a {
+            padding: 10px 10px;
+            display: block;
+            color: white;
+            position: relative;
+            top: -1em;
+
+        }
+
+        .submenu-items li a:hover {
+            background: #ff6347;
+
+        }
+
+        .submenu:hover .submenu-items {
+            display: inline-flex;
+            position: relative;
+            top: 1em;
+        }
+    .carousel,
+    .carousel-inner,
+    .carousel-inner > .item > img {
+        height: 93vh; /* Ajusta la altura para cubrir 65% de la pantalla */
+        width: 100%;
+            margin: 0; /* Asegura que no haya margen adicional */
+
+
+    }
+
+    .carousel-inner > .item > img {
+        object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
+        height: 100%; /* Cubre toda la altura del contenedor */
+        width: 100%; /* Cubre toda la anchura del contenedor */
+
+    }
+
+    .carousel-caption {
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejor visibilidad del texto */
+        padding: 10px;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+            overflow-y: auto; /* Solo oculta el scroll vertical */
+    overflow-x: hidden; /* Mantiene el scroll horizontal */
+
+
+    }
+
+    .container {
+        padding: 0;
+        width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+            margin: 0; /* Asegura que no haya margen adicional */
+                max-height: 450px;
+
+    }
+
+       .event-sponsors, .event-promotions, .event-gallery, .entry-pricing, .contact, .location {
+
+            padding: 50px 0;
+        }
+
+        .event-gallery, .container h2, {
+                  text-align: center;
+            font-size: 1.5em;
+                        color: white;
+
+
+        }
+
+        .event-promotions h2{
+
+       text-align: center;
+            font-size: 1.5em;
+                        color: white;
+                        position: relative;
+                        left: 14em;
+                        top: 3em;
+        }
+
+
+
+
+        .sponsors, .gallery, .pricing-options {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .sponsors span, .pricing h3 {
+            font-size: 1.2em;
+        }
+
+        .event-promotions iframe {
+            display: flex;
+            margin: 0 auto;
+            height: 20em;
+            width: 33em;
+            right: 12em;
+            position: relative;
+            top: -3em;
+
+
+        }
+
+
+     .event-promotions{
+
+                        background: url('luces.jpg') no-repeat center center; /* Establece la imagen de fondo */
+            background-size: cover; /* Asegura que la imagen cubra toda la sección */
+
+
+     }
+
+.event-gallery{
+    background: #333;
+     color: white;
+            text-align: center;
+                        padding: 10px;
+
+}
+
+      .contact{
+
+         background: url('cuadros.jpg') no-repeat center center; /* Establece la imagen de fondo */
+            background-size: cover; /* Asegura que la imagen cubra toda la sección */
+
+
+      }
+        .gallery img {
+            width: 270px;
+            height: 270px;
+           
+        }
+
+
+      .gallery {
+
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 95px; /* Ajusta el espacio horizontal entre imágenes */
+    row-gap: 43px; /* Ajusta el espacio vertical entre filas */
+    justify-content: center;
+    position: relative;
+                
+}
+
+
+
+.image-container {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+           
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8px;
+            transition: bottom 0.5s ease;
+            font-size: 14px;
+        }
+        .image-container:hover .overlay {
+            bottom: 0;
+        }
+
+        .pricing {
+            background: #eee;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #map {
+            width: 100%;
+            height: 300px;
+            background: url('map-placeholder.jpg') no-repeat center center/cover;
+        }
+
+        .events-section {
+        background:#333 ;
+
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    position: relative;
+
+
+}
+
+.events-list-container {
+    max-height: 350px; /* Ajusta la altura según sea necesario */
+    overflow-y: auto;
+    padding: 20px;
+    border: 2px solid #321; /* Opcional: Añade un borde para mejor visibilidad */
+    background-color: #0003; /* Opcional: Cambia el fondo para hacer que los eventos resalten */
+  
+}
+
+
+        .event-item {
+          background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto; /* Centrar el recuadro */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 700px; /* Ajusta este valor según sea necesario */
+        }
+
+        .event-item img {
+            max-width: 150px;
+            border-radius: 10px;
+        }
+
+        .event-item h3, .event-item p {
+            margin: 0 20px;
+        }
+
+        .event-item a {
+            background-color: darkred;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .event-item a:hover {
+            background-color: red;
+        }
+
+         .floating-icon {
+            position: fixed;
+            bottom: 15px; /* Reduce distance from bottom */
+            right: 15px; /* Reduce distance from right */
+            background-color: darkred;
+            color: white;
+            border-radius: 50%;
+            width: 45px; /* Reduce size */
+            height: 45px; /* Reduce size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px; /* Reduce font size */
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Reduce shadow */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .floating-icon:hover {
+            background-color: darkgray;
+            transform: translateY(-2px);
+        }
+
+
+        .promotional-flyers {
+    padding: 50px 0;
+background: url('cuadros.jpg') no-repeat center center; /* Establece la imagen de fondo */
+            background-size: cover; /* Asegura que la imagen cubra toda la sección */
+
+    text-align: center;
+}
+
+.promotional-flyers h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.flyer-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between flyers */
+}
+
+.flyer-gallery img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.flyer-gallery img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+
+
+.flyer-container {
+    perspective: 1000px; /* Agrega perspectiva para el efecto 3D */
+}
+
+.flyer {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flyer img {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el reverso cuando rota */
+}
+
+.flyer-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    backface-visibility: hidden;
+    transform: rotateY(180deg); /* Rota el reverso */
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.flyer-container:hover .flyer {
+    transform: rotateY(180deg); /* Rota la tarjeta en hover */
+}
+
+
+  </style>
+ 
+</head>
+<body>
+
+<div class="container">
+
+  <div id="theCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicadores -->
+    <ol class="carousel-indicators">
+      <li data-target="#theCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#theCarousel" data-slide-to="1"></li>
+      <li data-target="#theCarousel" data-slide-to="2"></li>
+
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="fondo1.jpg" alt="Fondo 1"> 
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Fondo 1</h3>
+          <p>Descripción de Fondo 1</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="carro1.png" alt="Carro"> 
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Carro</h3>
+          <p>Descripción de Carro</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="adora.jpg" alt="Adora"> 
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Adora</h3>
+          <p>Descripción de Adora</p>
+        </div>
+      </div>
+    </div>
+
+    <a class="left carousel-control" href="#theCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">anterior</span>
+    </a>
+    <a class="right carousel-control" href="#theCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">siguiente</span>
+    </a>
+  </div>
+</div>
+ <img src="logoc.png" alt="Logo" style="width: 963px; height: 293px;position: relative; top: -480px; left: 33em;">
+            <a href="https://youtube.com/live/rsH2A7SqcP0?feature=share" class="btn" target="_blank">
+                <i class="fas fa-broadcast-tower"></i> Transmisión en Vivo
+            </a>
+
+             <nav class="nav">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="director.html">Acerca del Director</a></li>
+            <li><a href="valores.html">Valores</a></li>
+                        <li><a href="proposito.html">Propósito</a></li>
+            <li><a href="musicos.html">Músicos y Colaboradores</a></li>
+
+            <li class="submenu">
+                <a href="#">Multimedia</a>
+                <ul class="submenu-items">
+                    <li><a href="musica.html">Música</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="albums.html">Fotos</a></li>
+                </ul>
+            </li>
+            <li><a href="noticias.html">Noticias</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            
+        </ul>
+    </nav>
+
+ <main>
+        <section class="events-section">
+
+            <div class="container">
+                <h2 style="position: relative; top:-1em;">Trasmisiones Programadas</h2>
+                <div class="events-list-container">
+                    <div id="eventsList">
+                        <!-- Se actualizará con los eventos en vivo -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="event-promotions">
+            <div class="container">
+                <h2>Ministerio de adoración </h2>
+                <h2>se presenta para adorar al creador.</h2>
+<iframe width="1290" height="729" src="https://www.youtube.com/embed/Je5OLDt3-W4" title="A su Gloria y Majestad.  video oficial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+            </div>
+        </section>
+
+        <section class="event-gallery">
+        <div class="container">
+            <h2 style="color: white; left:1em;position: relative;font-size: 2.3em;">Actividades</h2>
+            <div class="gallery">
+                <div class="image-container">
+                    <img src="act1.jpeg" alt="Descripción de la imagen 1" style="border-radius: 8px; border: 3px solid #321;">
+                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
+                </div>
+                <div class="image-container">
+                    <img src="act2.jpeg" alt="Descripción de la imagen 2" style="border-radius: 8px; border: 2px solid #321;" >
+                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
+                </div>
+                <div class="image-container">
+                    <img src="act3.jpeg" alt="Descripción de la imagen 3" style="border-radius: 8px; border: 2px solid #321;">
+                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
+                </div>
+                <div class="image-container">
+                    <img src="act4.jpeg" alt="Descripción de la imagen 4" style="border-radius: 8px; border: 2px solid #321;">
+                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
+                </div>
+                <div class="image-container">
+                    <img src="act5.jpeg" alt="Descripción de la imagen 5" style="border-radius: 8px; border: 2px solid #321;">
+                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
+                </div>
+                <div class="image-container">
+                    <img src="act6.jpeg" alt="Descripción de la imagen 6" style="border-radius: 8px; border: 2px solid #321;">
+                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
+                </div>
+                <div class="image-container">
+                    <img src="act7.jpeg" alt="Descripción de la imagen 7" style="border-radius: 8px; border: 2px solid #321;">
+                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
+                </div>
+                <div class="image-container">
+                    <img src="act8.jpeg" alt="Descripción de la imagen 8" style="border-radius: 8px; border: 2px solid #321;">
+                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
+                </div>
+               
+                <div class="image-container">
+                    <img src="act9.jpeg" alt="Descripción de la imagen 9" style="border-radius: 8px; border: 2px solid #321;">
+                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
+                </div>
+               
+               
+                </div>
+            </div>
+        </div>
+    </section>
+      <section class="promotional-flyers">
+    <div class="container">
+        <h2>Eventos</h2>
+        <div class="flyer-gallery">
+            <div class="flyer-container">
+                <div class="flyer">
+                    <img src="dic-16.jpg" alt="Flyer 1">
+                    <div class="flyer-info">
+                        <p>Información del evento 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flyer-container">
+                <div class="flyer">
+                    <img src="dic-16.jpg" alt="Flyer 2">
+                    <div class="flyer-info">
+                        <p>Información del evento 2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flyer-container">
+                <div class="flyer">
+                    <img src="dic-16.jpg" alt="Flyer 3">
+                    <div class="flyer-info">
+                        <p>Información del evento 3</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flyer-container">
+                <div class="flyer">
+                    <img src="dic-16.jpg" alt="Flyer 4">
+                    <div class="flyer-info">
+                        <p>Información del evento 4</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more flyers as needed -->
+        </div>
+    </div>
+</section>
+
+
+        
+    </main>
+    
+   <footer style="background-color: #333; padding: 20px;">
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    
+    <!-- Sección de patrocinadores -->
+    <div style="flex: 1;">
+      <h3 style="margin-top: 0; left: 8em; position: relative; top: 6em; font-size:1em">Patrocinados por:</h3>
+      <ul style="list-style: none; padding: 0; display: flex; gap: 12px; position: relative; top: 3em; left: 46em; ">
+        <li><img src="pa1.jpg" alt="Patrocinador 1" style="max-height: 57px; border-radius: 10px;"></li>
+        <li><img src="pa2.jpg" alt="Patrocinador 2" style="max-height: 57px; border-radius: 10px;"></li>
+        <li><img src="pa3.jpg" alt="Patrocinador 3" style="max-height: 57px; border-radius: 10px;" ></li>
+        <li><img src="pa4.jpg" alt="Patrocinador 4" style="max-height: 57px; border-radius: 10px;"></li>
+        <li><img src="pa5.jpg" alt="Patrocinador 5" style="max-height: 57px; border-radius: 10px;"></li>
+        <li><img src="pa6.jpg" alt="Patrocinador 6" style="max-height: 57px; border-radius: 10px;"></li>
+        <li><img src="pa7.jpg" alt="Patrocinador 7" style="max-height: 57px; border-radius: 10px;"></li>
+
+      </ul>
+    </div>
+    
+    <!-- Sección de promoción de artículos -->
+    <div style="flex: 1; text-align: right;">
+      <h3 style="margin-top: 0;">Conoce nuestros Artículos</h3>
+      <p>Descubre la variedad que tenemos...</p>
+      <a href="articulos.html" style="text-decoration: none; color: #007BFF;">Ver artículos</a>
+    </div>
+  </div>
+  
+  <!-- Derechos reservados -->
+  <div style="text-align: center; margin-top: 18px; font-size: 1.3em; position: relative; top: -5.3em;">
+    <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
+  </div>
+
+</footer>
+
+ <script>
+
+ $(document).ready(function() {
+      $('.carousel').carousel({
+        interval: 6000 // Intervalo de 3 segundos
+      });
+    });
+
+
+async function fetchNextLiveStream() {
+    const apiKey = 'AIzaSyBwo6sYHsybCqyPId7XHk96S_SK0rQdmeU'; // Asegúrate de usar tu clave API correcta
+    const channelId = 'UCqiGKsk83ZKDl16wXncTJUg';
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=upcoming&type=video&key=${apiKey}`;
+
+    try {
+        console.log('Fetching data from URL:', url); // Log para ver la URL completa
+        const response = await fetch(url);
+
+        console.log('Response status:', response.status); // Log para ver el código de estado HTTP
+
+        // Imprimir la respuesta completa para verificar detalles adicionales
+        const responseText = await response.text();
+        console.log('Response text:', responseText);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = JSON.parse(responseText); // Analizar manualmente la respuesta JSON
+        console.log('Response data:', data); // Log para ver los datos de respuesta
+
+        const eventsList = document.getElementById('eventsList');
+        eventsList.innerHTML = '';
+
+        if (data.items && data.items.length > 0) {
+            // Ordena los eventos por fecha de inicio
+            data.items.sort((a, b) => new Date(a.snippet.publishedAt) - new Date(b.snippet.publishedAt));
+
+            data.items.forEach(event => {
+                console.log('Event data:', event); // Log para ver cada evento
+
+                const eventTitle = event.snippet.title;
+                const eventDate = new Date(event.snippet.publishedAt).toLocaleString();
+                const eventThumbnail = event.snippet.thumbnails.medium.url;
+                const eventLink = `https://www.youtube.com/watch?v=${event.id.videoId}`;
+
+                const eventElement = document.createElement('div');
+                eventElement.className = 'event-item';
+                eventElement.innerHTML = `
+                    <img src="${eventThumbnail}" alt="${eventTitle}">
+                    <div>
+                        <h3>${eventTitle}</h3>
+                        <p>${eventDate}</p>
+                    </div>
+                    <a href="${eventLink}" target="_blank" >Ver transmisión</a>
+                `;
+                eventsList.appendChild(eventElement);
+            });
+        } else {
+            console.log('No upcoming events found.'); // Log si no se encontraron eventos
+            eventsList.innerHTML = '<p>No hay transmisiones programadas</p>';
+        }
+    } catch (error) {
+        console.error('Error fetching live stream data:', error); // Log para ver errores
+        document.getElementById('eventsList').innerText = 'Error al obtener datos';
+    }
+}
+
+setInterval(fetchNextLiveStream, 60000); // Actualizar cada 60 segundos
+window.onload = fetchNextLiveStream;
+</script>
+</body>
+</html>

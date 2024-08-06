@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Multimedia</title>
+    <link rel="icon" href="logof.png" type="image/png">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background: #1D84EA;
+            color: black;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
+            color: white;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: auto;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5em;
+            letter-spacing: 1px;
+            position: relative;
+            text-align: center;
+        }
+
+        h1 span {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background-color: #ff6347;
+            display: block;
+            margin: 0.5em auto 0;
+            border-radius: 2px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 150px; /* Establece un ancho máximo para las imágenes */
+            height: auto; /* Mantiene la proporción de las imágenes */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 6px 43px rgba(0, 0, 0, 0.2); /* Añade sombra alrededor de las imágenes */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza la transición al pasar el ratón */
+            object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor */
+            object-position: center; /* Centra la imagen dentro del contenedor */
+            cursor: pointer; /* Cambia el cursor para indicar que la imagen es interactiva */
+        }
+
+        /* Estilo para la vista de imagen ampliada */
+        .lightbox {
+            display: none; /* Oculta la vista ampliada por defecto */
+            position: fixed; /* Fija la vista ampliada en la pantalla */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lightbox img:hover {
+            transform: scale(1.05);
+        }
+
+        .lightbox:target {
+            display: flex; /* Muestra la vista ampliada al hacer clic */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05); /* Amplía la imagen al pasar el ratón */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Intensifica la sombra al pasar el ratón */
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            background: #1e3d7c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+
+        .pagination button:hover {
+            background: #163a6b;
+        }
+
+        .pagination button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="director.html">Acerca del Director</a></li>
+                <li><a href="valores.html">Valores</a></li>
+                <li><a href="proposito.html">Propósito</a></li>
+                <li><a href="musicos.html">Músicos y Colaboradores</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Galería Multimedia<span></span></h1>
+        <div class="gallery">
+            <!-- Aquí irán las imágenes -->
+        </div>
+        <div class="pagination">
+            <button class="prev">Anterior</button>
+            <button class="next">Siguiente</button>
+        </div>
+    </main>
+    <footer>
+        <!-- Derechos reservados -->
+  <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
+    <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
+  </div>
+    </footer>
+    <script>
+        const images = [
+            'fo1.jpeg',
+            'fo2.jpeg',
+            'fo3.jpeg',
+            'fo4.jpeg',
+            'fo5.jpeg',
+            'fo6.jpeg',
+            'fo7.jpeg',
+            'fo8.jpeg',
+            'fo9.jpeg',
+            'fo10.jpeg',
+            'fo11.jpeg',
+            'fo12.jpeg',
+            'fo13.jpeg',
+            'fo14.jpeg',
+            'fo15.jpeg',
+            'fo16.jpeg',
+            'fo17.jpeg',
+            'fo18.jpeg',
+            'fo19.jpeg',
+            'fo20.jpeg',
+            'fo21.jpeg',
+            'fo22.jpeg',
+            'fo23.jpeg',
+            'fo24.jpeg',
+            'fo25.jpeg',
+            'fo26.jpeg',
+            'fo27.jpeg'
+        ];
+
+        const imagesPerPage = 20;
+        let currentPage = 1;
+
+        function showImages(page) {
+            const gallery = document.querySelector('.gallery');
+            gallery.innerHTML = '';
+
+            // Asegúrate de que el índice esté dentro del rango de imágenes
+            const startIndex = (page - 1) * imagesPerPage;
+            const endIndex = Math.min(startIndex + imagesPerPage, images.length);
+            
+            console.log(`Showing images from ${startIndex} to ${endIndex - 1}`);
+
+            for (let i = startIndex; i < endIndex; i++) {
+                const img = document.createElement('img');
+                img.src = images[i];
+                img.alt = `Imagen ${i + 1}`;
+                img.classList.add('gallery-image'); // Añadir clase para seleccionar fácilmente
+                gallery.appendChild(img);
+            }
+
+            // Añadir eventos de clic a las imágenes recién añadidas
+            addLightboxEvents();
+        }
+
+        function setupPagination() {
+            const prevButton = document.querySelector('.prev');
+            const nextButton = document.querySelector('.next');
+
+            prevButton.disabled = currentPage === 1;
+            nextButton.disabled = currentPage * imagesPerPage >= images.length;
+
+            console.log(`Current page: ${currentPage}`);
+            console.log(`Prev button disabled: ${prevButton.disabled}`);
+            console.log(`Next button disabled: ${nextButton.disabled}`);
+
+            prevButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    showImages(currentPage);
+                    setupPagination();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentPage * imagesPerPage < images.length) {
+                    currentPage++;
+                    showImages(currentPage);
+                    setupPagination();
+                }
+            });
+        }
+
+        function addLightboxEvents() {
+            const galleryImages = document.querySelectorAll('.gallery-image'); // Selecciona las imágenes recién añadidas
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImage = lightbox.querySelector('img');
+
+            galleryImages.forEach((image) => {
+                image.addEventListener('click', () => {
+                    lightboxImage.src = image.src;
+                    lightbox.style.display = 'flex';
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Crear la estructura del lightbox
+            const lightbox = document.createElement('div');
+            lightbox.classList.add('lightbox');
+            document.body.appendChild(lightbox);
+
+            const lightboxImage = document.createElement('img');
+            lightbox.appendChild(lightboxImage);
+
+            showImages(currentPage);
+            setupPagination();
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuItems = document.querySelectorAll('nav ul li a');
+
+            menuItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    // Remove active class from all menu items
+                    menuItems.forEach(function(item) {
+                        item.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked menu item
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

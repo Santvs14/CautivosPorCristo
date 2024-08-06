@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Música</title>
+    <link rel="icon" href="logof.png" type="image/png">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #1D84EA;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
+            color: white;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: auto;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0.5em;
+            letter-spacing: 1px;
+            position: relative;
+            text-align: center;
+        }
+
+        h1 span {
+            width: 50px;
+            height: 4px;
+            background-color: #ff6347;
+            display: block;
+            margin: 0.5em auto 0;
+            border-radius: 2px;
+        }
+
+        .spotify-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 40px 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .spotify-container:hover {
+            transform: scale(1.02);
+        }
+
+        .spotify-container iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 380px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .info {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #444;
+        }
+
+        .info a {
+            color: #1e3d7c;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .info a:hover {
+            text-decoration: underline;
+            color: #ff6347;
+        }
+
+        .post-it {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            padding: 15px;
+            background-color: #d9f99d;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            font-size: 1em;
+            text-align: center;
+            transform: rotate(-5deg);
+            transition: transform 0.3s;
+        }
+
+        .post-it:hover {
+            transform: rotate(-3deg) scale(1.05);
+        }
+
+        .spotify-logo {
+            width: 230px;
+            margin: 0 auto 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .spotify-logo:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                                 <img src="logof.png" alt="Logo" style="height: 50px;">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="director.html">Acerca del Director</a></li>
+                <li><a href="valores.html">Valores</a></li>
+                <li><a href="proposito.html">Propósito</a></li>
+                <li><a href="musicos.html">Músicos y Colaboradores</a></li>
+                                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Ven y conoce nuestra música.<span></span></h1>
+        <div class="spotify-container">
+            <img class="spotify-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify Logo">
+            <!-- Reemplaza el src con la URL de la canción de Spotify -->
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3V5S35WsvCAAWMJcccLb9s?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="info">
+            "La música es el lenguaje universal del alma."
+        </div>
+    </main>
+    <footer>
+          <!-- Derechos reservados -->
+  <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
+    <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
+  </div>
+    </footer>
+    <div class="post-it">
+        Toda nuestra música disponible en Spotify
+    </div>
+</body>
+</html>

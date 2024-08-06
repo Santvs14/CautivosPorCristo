@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Músicos y Colaboradores</title>
+    <link rel="icon" href="logof.png" type="image/png">
+    <!-- Cargar fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Roboto:300,400,500" rel="stylesheet">
+    <!-- Cargar iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(45deg, #1E3A5F,#89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #1D84EA;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            background-color: #1D84EA;
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        footer .social-links {
+            margin: 1em 0;
+        }
+
+        footer .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: #ff6347;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #1e3d7c;
+            margin-bottom: 0.5em;
+            letter-spacing: 1px;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+
+        h1::after {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background-color: #ff6347;
+            display: block;
+            margin: 0.5em auto 0;
+            border-radius: 2px;
+        }
+
+        .image-gallery {
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(190px, 4fr));
+            gap:50px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .image-item {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 123%;
+            height: 160px;
+            overflow: hidden;
+                        border-radius: 63px;
+
+        }
+
+        .image-item img {
+            width: 150px;
+            height: 150px;
+            border-radius: 93px;
+            object-fit: cover;
+            box-shadow: 0 30px 50px rgba(255, 0, 0, 0.5);
+            /* Sombra roja */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-item:nth-child(2) img {
+            box-shadow: 0 20px 40px rgba(0, 255, 0, 0.5);
+            /* Sombra verde */
+            border-radius: 93px;
+        }
+
+        .image-item:nth-child(3) img {
+            box-shadow: 0 20px 40px rgba(0, 0, 255, 0.5);
+            /* Sombra azul */
+                        border-radius: 93px;
+        }
+
+        .image-item:nth-child(4) img {
+            box-shadow: 0 20px 40px rgba(255, 165, 0, 0.5);
+            /* Sombra naranja */
+                        border-radius: 93px;
+        }
+
+        .image-item:nth-child(5) img {
+            box-shadow: 0 20px 40px rgba(128, 0, 128, 0.5);
+            /* Sombra púrpura */
+                        border-radius: 93px;
+        }
+
+        .image-item:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 93px;
+        }
+
+        .image-label {
+            margin-left: 15px;
+            font-size: 1em;
+            color: #1e3d7c;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+
+        }
+
+        .image-label:hover {
+            color: #ff6347;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .bio-link {
+            color: #1e3d7c;
+            font-size: 0.9em;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .bio-link:hover {
+            color: #ff6347;
+        }
+
+        .bio-card {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            z-index: 1000;
+        }
+
+        .bio-card h3 {
+            margin-top: 0;
+            color: #1e3d7c;
+        }
+
+        .bio-card p {
+            margin: 10px 0;
+        }
+
+        .close-btn {
+            background: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #e55340;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .section-wrapper {
+            display: flex;
+            justify-content: space-around;
+            gap: 33px;
+            width: 100%;
+            position: relative;
+        }
+
+        .section-container {
+            background-color: #fff;
+            padding: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 30%;
+            min-width: 280px;
+        }
+
+        .section-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-container p {
+            margin: 0.3em 0;
+            font-size: 1em;
+            line-height: 1.4;
+            width: 100%;
+            text-align: left;
+        }
+
+        .section-container p strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .section-container h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
+            color: #1e3d7c;
+            margin-bottom: 0.5em;
+            position: relative;
+            text-align: center;
+        }
+
+        .section-container h2::after {
+            content: '';
+            width: 30px;
+            height: 3px;
+            background-color: #ff6347;
+            display: block;
+            margin: 0.5em auto 0;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+               <img src="logof.png" alt="Logo" style="height: 50px;">
+               <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="director.html">Acerca del Director</a></li>
+                <li><a href="valores.html">Valores</a></li>
+                <li><a href="proposito.html">Propósito</a></li>
+                <li><a href="musicos.html" class="active">Músicos y Colaboradores</a></li>
+                <li><a href="noticias.html" >Noticias</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Músicos y Colaboradores</h1>
+
+      <!-- Galería de imágenes -->
+<section class="image-gallery">
+   
+    <div class="image-item">
+        <img src="b2.png" alt="Emmanuel Polanco Feliz">
+        <div class="image-label">
+            Emmanuel Polanco Feliz
+            <span class="bio-link" onclick="openBio('emmanuel')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+
+    <div class="image-item">
+        <img src="kelvin.jpeg" alt="Kelvin Matos">
+        <div class="image-label">
+            Kelvin Matos
+            <span class="bio-link" onclick="openBio('kelvin')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+
+    <div class="image-item">
+        <img src="norky.jpeg" alt="Norky García">
+        <div class="image-label">
+            Norky García
+            <span class="bio-link" onclick="openBio('norky')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+
+     <div class="image-item">
+        <img src="darky.jpeg" alt="Darky Rafael Guevara">
+        <div class="image-label">
+            Darky Rafael Guevara
+            <span class="bio-link" onclick="openBio('darky')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+
+    <div class="image-item">
+        <img src="emanuel.jpeg" alt="Emmanuel Cabrera">
+        <div class="image-label">
+            Emmanuel Cabrera
+            <span class="bio-link" onclick="openBio('cabrera')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="francisco.jpeg" alt="francisco feliz">
+        <div class="image-label">
+            Francisco Feliz
+            <span class="bio-link" onclick="openBio('francisco')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="samil.jpeg" alt="Samil Batista">
+        <div class="image-label">
+            Samir Batista
+            <span class="bio-link" onclick="openBio('samil')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+
+     
+    
+    <div class="image-item">
+        <img src="ramon.jpeg" alt="Ramón de Jesus Lebrón">
+        <div class="image-label">
+            Ramón de Jesus Lebrón
+            <span class="bio-link" onclick="openBio('ramon')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="madelin.jpg" alt="Madelin Feliz Cuevas">
+        <div class="image-label">
+            Madelin Feliz Cuevas
+            <span class="bio-link" onclick="openBio('madelin')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="mindra.jpeg" alt="Mindra García">
+        <div class="image-label">
+            Mindrina García
+            <span class="bio-link" onclick="openBio('mindra')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="ilonka.jpeg" alt="Ilonka Elizabeth Pérez">
+        <div class="image-label">
+            Ilonka Elizabeth Pérez
+            <span class="bio-link" onclick="openBio('ilonka')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="daura.jpeg" alt="Daura Terrero">
+        <div class="image-label">
+            Daura Terrero
+            <span class="bio-link" onclick="openBio('daura')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="franklinm.jpeg" alt="Francklin Matos Feliz">
+        <div class="image-label">
+            Francklin Matos Feliz
+            <span class="bio-link" onclick="openBio('francklin')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="eric.jpeg" alt="Erick Montilla">
+        <div class="image-label">
+            Erick Montilla
+            <span class="bio-link" onclick="openBio('erick')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="oliver.jpeg" alt="Oliver Dickember">
+        <div class="image-label">
+            Oliver Dickember
+            <span class="bio-link" onclick="openBio('oliver')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="franklina.jpeg" alt="Franklin David Arias Polanco">
+        <div class="image-label">
+            Franklin David Arias Polanco
+            <span class="bio-link" onclick="openBio('franklin')"><strong style="color:green;">Biografía</strong></span>
+        </div>
+    </div>
+    
+   
+</section>
+
+<!-- Tarjetas de biografía -->
+<div class="overlay" id="overlay" onclick="closeBio()"></div>
+
+<div class="bio-card" id="bio-darky">
+    <h3>Darky Rafael Guevara</h3>
+    <p>Nacido el 7 de noviembre y residente de la comunidad costera de La Ciénaga en Barahona, ha dedicado su vida a la música desde que tenía 10 años. Su amor por la música lo llevó a explorar diversos instrumentos, comenzando con la percusión y ampliando sus habilidades para incluir las congas, la güira, la batería y el bajo eléctrico. Sin embargo, es la guitarra eléctrica donde ha encontrado su verdadera especialidad, tocando con una destreza que le ha permitido colaborar con reconocidos artistas cristianos y participar en eventos artísticos de gran relevancia.</br></br> Criado en un entorno de profunda espiritualidad, Darki se ha forjado en la Iglesia Cristiana, donde su fe y compromiso con su comunidad han sido fundamentales en su desarrollo personal y profesional. Actualmente, se congrega en el Centro Cristiano Resurrección y Vida, un pilar en su vida que complementa su carrera musical y sus aspiraciones.</br></br>Además de su éxito en la música, Darki es un experto en joyería, especializándose en el trabajo con plata y en el Larimar, una piedra preciosa única en el mundo. Su habilidad en la joyería resalta su creatividad y versatilidad, consolidándolo no solo como un músico destacado sino también como un talentoso artesano, reflejando su capacidad para fusionar arte y pasión en todas sus facetas.
+
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-emmanuel">
+    <h3>Emmanuel Polanco Feliz</h3>
+    <p>Emmanuel Polanco Feliz es un talentoso maestro de música y artes que ha dedicado su vida a la enseñanza y a la música. Nacido el 1 de diciembre en Santa Cruz Barahona, desde temprana edad mostró una pasión por la música, aprendiendo a tocar la guitarra y desarrollando sus habilidades como compositor y cantante. Es egresado de la Escuela de Canto del Centro Cultural María Montez, del Ministerio de Cultura, de la República Dominicana. Con una licenciatura en comunicación social con mención en periodismo, Emmanuel es un comunicador versátil que combina su amor por la música con su talento para la composición.</br></br>
+
+Además de su faceta como maestro y comunicador, Emmanuel es un devoto cristiano que se congrega en la Iglesia Cristiana de Barahona, donde también ejerce como predicador. Su fe ha sido una parte fundamental de su vida desde los 12 años, y en la iglesia comparte su amor por la música tocando varios instrumentos de percusión.
+</br></br>Con una vida dedicada al arte, la música y la fe, Emmanuel Polanco Feliz es un ejemplo de pasión, talento y dedicación. Su influencia como maestro, músico y predicador ha dejado una huella profunda en la comunidad de Santa Cruz Barahona y más allá.
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-norky">
+    <h3>Norky García</h3>
+    <p>Nacido el 5 de diciembre, reside en la tranquila comunidad rural de Palo Bonito, en el Distrito Municipal La Guázara, Barahona. Desde joven, Norkin ha demostrado una pasión por la música que lo llevó a explorar diversos instrumentos, como la guitarra, el piano y el bajo, además de destacarse como cantante y compositor cristiano. </br></br> Su interés en la música comenzó en la adolescencia y ha sido una constante en su vida. Creció en un hogar cristiano y su fe sigue siendo fundamental en su vida, asistiendo a la Iglesia Roca de Salvación, donde también participa activamente. Es egresado de la Escuela de Canto del Centro Cultural María Montez.</br></br>Norkin combina su amor por la música con su compromiso espiritual, reflejando una vida de dedicación y armonía entre sus dos grandes pasiones.
+
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-kelvin">
+    <h3>Kelvin Matos</h3>
+    <p>Nació el 12 de julio y reside en Villa Central, Barahona. Desde una edad muy temprana, Kelvin ha mostrado un talento excepcional para la música, comenzando a tocar el bajo a los 5 años. A los 7 años, empezó a visitar la iglesia, y actualmente se congrega en la Iglesia de la Profecía.
+</br></br>
+Su pasión y dedicación por la música lo llevaron a convertirse en maestro de bajo en el Centro Cultural María Montez en Barahona, donde ha inspirado a numerosos estudiantes con su habilidad y conocimiento. Además del bajo, Kelvin es un músico versátil que domina varios instrumentos, incluyendo la guitarra, la güira, la tambora y la conga.
+
+</br></br>Más allá de su amor por la música, Kelvin está profundamente comprometido con su fe. Comparte el evangelio predicando en las calles, extendiendo su mensaje de esperanza y fe a su comunidad. Su vida y obra son un testimonio de su dedicación tanto a su arte como a su fe.
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-samil">
+    <h3>Samir Batista</h3>
+    <p>Nació el 21 de abril y actualmente reside en Santa Cruz de Barahona. Desde los 16 años, Samir ha estado inmerso en el mundo de la música, destacándose no solo como pianista, sino también como guitarrista y bajista y compositor. Su habilidad para tocar múltiples instrumentos, combinada con su talento como cantante, le ha permitido participar en diversos certámenes de canto, donde ha cosechado éxitos notables. Es tutor de canto de la Escuela de Canto del Centro Cultural María Montez.</br></br>Nacido y criado en un entorno cristiano, Samir ha mantenido una profunda conexión con su fe desde su infancia. Esta influencia espiritual ha sido un pilar en su vida, guiándolo en su desarrollo personal y profesional. Su compromiso con la música y su fe se reflejan en su participación activa en la Iglesia Evangélica Congregacional Cristiana Inc., bajo la dirección pastoral del pastor Rafael Torres.
+</br></br>La vida de Samir Batista es un testimonio de su dedicación tanto a la música como a su espiritualidad. Su pasión por la música, iniciada en la adolescencia, y su constante involucramiento en su comunidad de fe, demuestran un equilibrio armonioso entre su talento artístico y sus valores cristianos.
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-francisco">
+    <h3>Francisco Feliz</h3>
+    <p>Nació el 20 de marzo y actualmente reside en Santa Cruz de Barahona. Desde su adolescencia, ha demostrado un profundo amor por la música, comenzando su viaje musical con el piano. Su dedicación a este instrumento ha sido una constante en su vida, complementando sus múltiples facetas.</br></br>Desde muy niño, Francisco ha mantenido una firme convicción cristiana, lo cual ha sido una guía fundamental en su vida. Además de su compromiso espiritual, ha logrado una destacada carrera académica y profesional, obteniendo el título de Licenciado en Ciencias Matemáticas. Su capacidad técnica se extiende también al campo de la electricidad, donde trabaja como electricista lineal, combinando su conocimiento en matemáticas con habilidades prácticas.</br></br>Francisco es un miembro activo de la Iglesia de Dios Casa de Oración, Duarte 42, en Barahona, donde su participación en el ministerio de alabanzas local, refleja su compromiso con su comunidad y su fe. Su vida es un testimonio de cómo la música, la fe y la profesionalidad pueden entrelazarse para crear un impacto positivo en su entorno.
+
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-cabrera">
+    <h3>Emmanuel Cabrera</h3>
+    <p>Nació el 14 de Julio, vive actualmente en Blanquizales, Barahona. Desde los 11 años comenzó a tocar instrumentos de percusión al inicio de esta aventura en la música, inició tocando la güira, después la tambora y luego la conga, más adelante aprendió a tocar la batería por dos años, el cual a los 13 años se bautiza, por la gracia de Dios y acepta a Cristo estando desde pequeño, como a los 8 años, en Santo Domingo, en la Iglesia Asamblea de Dios Ensanche Kennedy. </br></br>Actualmente reside en Barahona y se congrega en la Congregación Cristiana Ríos de Dios. Es Líder Juvenil y músico en esta congregación. En estos momentos esta terminando de la carrera Ingeniería en Sistemas en la Universidad Católica Tecnológica de Barahona, UCATEBA.</br></br>Ha hecho varios cursos técnicos cómo Mecánica Automotriz, Paquete de Office y ahora está haciendo un Curso de Oratoria y Locución en la Vocacional de las Fuerzas Armadas. Como complemento de su formación extracurricular se prepara en el Curso de Liderazgo Internacional en la Institución Niños de las Naciones, donde trabaja como Asistente del Departamento de Patrocinios. 
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-ramon">
+    <h3>Ramón de Jesus Lebrón</h3>
+    <p>Artísticamente conocido como Charly Drums, nació el 31 de enero en Santa Cruz de Barahona. Desde los 16 años, Charly ha estado inmerso en el mundo de la música, destacándose como un talentoso baterista. Estudió un técnico musical, en la academia de música Santa Cecilia y en técnico Vocacional de Artes Plásticas y Musicales Ramón Oviedo, su maestro y mentor fue el reconocido baterista Augusto Acosta.</br></br>Su pasión por la música no solo se limita a la batería; también domina varios otros instrumentos musicales, lo que enriquece su versatilidad como músico. Actualmente, está ampliando sus conocimientos en el ámbito musical a través de una licenciatura en Música con mención en Teoría y Educación Musical. Toma la música enserio, al participar en ensambles del Conservatorio Nacional de Música y de Berklee en Santo Domingo.
+</br></br>Además de su carrera musical, Charly es un miembro activo de la Iglesia Congregación Cristiana Restaurando Vidas, donde milita desde los 16 años. Su dedicación y compromiso se reflejan tanto en su vida personal como profesional. Su pasión por la música y su implicación en su comunidad son testimonio de su profundo amor por el arte y su fe.
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-madelin">
+    <h3>Madelin Feliz Cuevas</h3>
+    <p>Nació el 28 de junio y reside en Santa Cruz, Barahona. Desde muy niña, Madelin ha dedicado su vida al canto, demostrando un talento innato que la ha llevado a componer varias canciones a lo largo de los años. Es egresada de la Escuela de Canto del Centro Cultural María Montez.
+</br></br>
+Hace 8 años, Madelin encontró su fe y desde entonces ha sido una cristiana devota, reuniéndose con los hermanos de la Iglesia Cristiana de Barahona. Su fe ha sido una fuente de inspiración y fortaleza en su vida.
+
+</br></br>Además de su pasión por la música, Madelin es una profesional dedicada al campo del bioanálisis, trabajando en el sector público. Su compromiso con su comunidad y su profesión refleja su dedicación y espíritu de servicio.
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-mindra">
+    <h3>Mindra García</h3>
+    <p>Nació el 8 de marzo, un día emblemático que celebra a las mujeres en todo el mundo. Reside en la encantadora comunidad de Palo Bonito, en el Distrito Municipal La Guázara, Barahona. Es egresada de la Escuela de Canto del Centro Cultural María Montez, Barahona.</br></br>Desde temprana edad, Mindrina ha sido una apasionada del canto, iniciando su trayectoria musical en la iglesia local. Ha participado en importantes eventos artísticos cristianos de su localidad y más allá. Creció en un entorno cristiano que ha sido fundamental en su vida y su vocación.
+</br></br> Actualmente, se congrega en la Iglesia Pentecostal Roca de Salvación, donde su talento y dedicación la han convertido en una figura querida en su comunidad. Su compromiso con la música y su fe continúa inspirando a quienes la rodean.
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-ilonka">
+    <h3>Ilonka Elizabeth Pérez</h3>
+    <p> Nació el 20 de marzo y actualmente reside en Santa Cruz de Barahona. Desde los 13 años, comenzó su viaje en el mundo de la música con el piano, pero pronto amplió su vocación hacia el canto, especializándose en esta área en la escuela de canto Ecos, bajo la dirección de María Teresa Heredia. Esta formación musical ha sido una parte integral de su vida, reflejando su profundo amor por la música.</br></br>Ilonka también ha desarrollado una carrera profesional en el campo de la salud y la educación. Es técnica en enfermería y actualmente está cursando una Licenciatura en Educación Básica con Mención Inicial. Su dedicación a la enseñanza y su compromiso con los niños se manifiestan a través de su trabajo en el proyecto Compasión Internacional, donde encuentra gran satisfacción en su labor con los más jóvenes.
+</br></br>Criada en un hogar cristiano, Ilonka es una ferviente creyente y se congrega en la Iglesia de Dios Casa de Oración, Duarte 42, en Barahona. Además de sus múltiples responsabilidades profesionales y su pasión por predicar sobre Jesús, Ilonka disfruta del bordado y las manualidades, que complementan su vida llena de fe y creatividad. También fue líder de teatro y danza, en la Congregación Cristiana Restaurando Vidas. Su vida ejemplifica un equilibrio entre el servicio a los demás, la educación, la música y el arte.
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-daura">
+    <h3>Daura Terrero</h3>
+    <p>Nació el 15 de noviembre y reside en el Sector Don Bosco, en la provincia de Barahona. Desde muy pequeña, Daura ha mostrado un gran interés por la música, lo que la llevó a aprender a tocar el piano y a desarrollar su talento como cantante. Su pasión por la música la ha llevado a participar en importantes concursos de canto a nivel nacional, destacándose por su voz y talento.
+</br></br>
+A los 15 años, Daura entregó su vida a Jesucristo, y desde entonces, se congrega en la Iglesia Evangélica Congregacional INC. Su fe ha sido una guía constante en su vida, influenciando tanto su arte como su camino personal. Es egresada de la Escuela de Canto del Centro Cultural María Montez, Barahona.</br></br>Además de cantar y tocar el piano, Daura disfruta de escribir y explorar otros instrumentos, demostrando su versatilidad y creatividad musical. Su dedicación a la música y a su fe la convierte en un ejemplo inspirador para su comunidad.
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-francklin">
+    <h3>Francklin Matos Feliz</h3>
+    <p>Franklin Matos Feliz nació el 29 de junio y actualmente reside en Santa Cruz de Barahona. Su vida ha estado profundamente influenciada por su fe cristiana, que ha sido una constante desde su nacimiento. A lo largo de su vida, Franklin ha mantenido un firme compromiso con sus creencias, lo que se refleja en su participación activa en la Congregación Cristiana Restaurando Vidas.</br></br>A los 22 años, Franklin descubrió su pasión por la música, un ámbito en el que ha desarrollado una notable carrera. Es guitarrista aficionado. Su formación académica incluye una licenciatura en lenguas modernas con mención en inglés, además de una especialización en sonido y producción musical. Su capacidad técnica en estos campos ha sido complementada por su especialidad en voces y armonía, lo que le permite abordar la música con una perspectiva integral y versátil.
+</br></br>La combinación de su formación académica y su experiencia práctica ha hecho de Franklin una figura destacada en su comunidad. Su trabajo no solo refleja su habilidad técnica y creativa, sino también su dedicación a la enseñanza y la producción musical dentro de un contexto cristiano. Franklin Matos Feliz continúa contribuyendo a su comunidad a través de su arte y su fe, fusionando sus pasiones con un compromiso inquebrantable.
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-maite">
+    <h3>Maité Ferreras</h3>
+    <p>Maité es una manager talentosa que se encarga de la logística y planificación de las giras de la banda.</br></br></br></br></p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-franklin">
+    <h3>Franklin David Arias Polanco</h3>
+    <p>Franklin David Arias Polanco nació el 14 de mayo en Santa Cruz de Barahona, donde ha desarrollado una vida multifacética llena de pasión y compromiso. Desde temprana edad, Franklin ha demostrado una notable habilidad y dedicación hacia sus intereses. Su devoción por la música se refleja en su habilidad para tocar la guitarra, una pasión que ha acompañado a lo largo de su vida, y que también encuentra un paralelo en su espiritualidad. Como cristiano desde los 13 años, ha mantenido una profunda conexión con su fe, que se manifiesta en su participación activa en la Iglesia Evangélica Congregacional Cristiana Inc., un pilar fundamental en su vida.</br></br>En su vida profesional, Franklin ha encontrado una forma única de integrar sus habilidades en diferentes campos. Es un talentoso artesano especializado en joyería, utilizando la piedra de Larimar, una gema local que representa una conexión profunda con su tierra natal. Esta labor no solo demuestra su destreza y creatividad, sino también su compromiso con la tradición y el arte local. Su trabajo en la joyería es una extensión de su aprecio por la belleza y la cultura de su región.
+</br></br>Además de sus habilidades artísticas, Franklin también ha incursionado en el ámbito de la informática, mostrando su versatilidad y adaptabilidad en un mundo en constante cambio. Su capacidad para combinar la tecnología con su pasión por el arte y la espiritualidad es testimonio de su carácter multifacético y su deseo de contribuir de manera significativa a su comunidad. Franklin David Arias Polanco es un ejemplo de cómo la pasión y la fe pueden entrelazarse para enriquecer la vida personal y profesional, destacándose en cada área que elige explorar.</p>
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-oliver">
+    <h3>Oliver Dickember</h3>
+    <p>Nació el 27 de marzo en Santa Cruz de Barahona. Desde una edad temprana, mostró una profunda pasión por la música, la cual empezó a explorar seriamente a los 20 años. Su carrera musical dio un giro significativo a los 21 años cuando se convirtió al evangelio y comenzó a congregarse en la Iglesia Evangélica Congregacional INC, integrando su fe con su arte.
+</br></br>
+Además de su talento como compositor y cantante, Oliver destaca por su habilidad en informática y manejo de redes sociales, lo que le permite combinar su pasión por la música con su conocimiento técnico. Su versatilidad y dedicación lo convierten en una figura destacada tanto en el ámbito musical como en el tecnológico.
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+<div class="bio-card" id="bio-erick">
+    <h3>Erick Montilla</h3>
+    <p>Nació el 4 de octubre y actualmente reside en Santo Domingo, la capital de la República Dominicana. Desde los 12 años, ha mostrado una profunda pasión por la música, comenzando su viaje en la percusión durante su tiempo en la escuela bíblica. </br></br>A los 18 años, Erick decidió comprometerse seriamente con la música y comenzó a tocar de manera regular en su congregación. Su dedicación a la música, en particular a la conga, ha sido una constante en su vida, complementada por su amor por otros instrumentos musicales. A la misma edad de 18 años, también se acercó a Jesús, un hito significativo en su vida espiritual. 
+</br></br>Actualmente, Erick es miembro activo de la iglesia Jehová es mi Pastor Alfa y Omega. Además de su vocación musical, trabaja como fotógrafo profesional, lo que le permite explorar su creatividad desde múltiples ángulos. Su vida es un reflejo de su devoción a la música, su fe y su arte.
+
+</p>
+    <button class="close-btn" onclick="closeBio()">Cerrar</button>
+</div>
+
+
+
+
+
+        <!-- Contenedores de texto en horizontal -->
+        <div class="section-wrapper">
+            <div class="section-container">
+                <h2>Elenco Musical</h2>
+
+                <p><strong>Director:</strong> Emmanuel Polanco Feliz</p>
+                <p><strong>Bajo:</strong> Kelvin Matos</p>
+                <p><strong>Guitarra Acústica:</strong> Norky García</p>
+                <p><strong>Guitarra Eléctrica 1:</strong> Darky Rafael Guevara</p>
+                <p><strong>Guitarra Eléctrica 2:</strong> Emmanuel Cabrera</p>
+                <p><strong>Piano 1:</strong>  Francisco  Feliz</p>
+                <p><strong>Piano 2:</strong> Samir Batista Diaz</p>
+                <p><strong>Batería:</strong>  Ramón de Jesus Lebrón</p>
+            </div>
+
+            <div class="section-container">
+                <h2>Vocalistas</h2>
+
+                <p> Madelin Feliz Cuevas</p>
+                <p> Mindrina García</p>
+                <p>Ilonka Elizabeth Feliz Pérez</p>
+                <p> Daura Terrero</p>
+            </div>
+
+            <div class="section-container">
+                <h2>Equipo de Apoyo</h2>
+
+                <p><strong>Sonido:</strong> Francklin Matos Feliz</p>
+                
+                <p><strong>Multimedia:</strong> Erick Montilla</p>
+                <p><strong>Tecnico de Redes:</strong> Oliver Dickember</p>
+                <p><strong>Soporte Tecnico:</strong> Franklin David Arias Polanco<p>
+
+
+
+            </div>
+        </div>
+    </main>
+    <footer>
+         <!-- Derechos reservados -->
+  <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
+    <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
+  </div>
+       
+    </footer>
+
+    <script>
+        function openBio(id) {
+            document.getElementById(`bio-${id}`).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeBio() {
+            const bios = document.querySelectorAll('.bio-card');
+            bios.forEach(bio => bio.style.display = 'none');
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+
+
+
+         document.addEventListener("DOMContentLoaded", function() {
+            var menuItems = document.querySelectorAll('nav ul li a');
+
+            menuItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    // Remove active class from all menu items
+                    menuItems.forEach(function(item) {
+                        item.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked menu item
+                    this.classList.add('active');
+                });
+            });
+        });
+    
+    </script>
+</body>
+
+</html>
