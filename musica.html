@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería de Música</title>
-    <link rel="icon" href="logof.png" type="image/png">
+    <link rel="icon" href="Logof.png" type="image/png">
     <style>
         /* Estilos generales */
         body {
@@ -19,9 +19,9 @@
         }
 
         header {
-            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
-            color: white;
+            background: linear-gradient(45deg,#1E3A5F, #1E3A5F, #4682B4, #1E3A5F, #89CFF0);
             padding: 1em 0;
+            color: white;
             text-align: center;
             width: 100%;
             box-sizing: border-box;
@@ -33,34 +33,34 @@
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            transition: background-color 0.3s ease;
+            align-items: center; /* Alinea los elementos verticalmente en el centro */
+            justify-content: center; /* Centra los elementos horizontalmente */
+            flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
         }
 
         nav ul li {
-            margin: 0;
+            padding: 0;
+            margin: 0 10px; /* Ajusta el margen horizontal entre los ítems de la lista */
         }
 
         nav ul li a {
             color: white;
-            padding: 15px 20px;
-            display: inline-block;
+            padding: 15px 20px; /* Espaciado interno de los ítems */
             text-decoration: none;
             font-size: 1em;
             transition: background-color 0.3s, color 0.3s;
             border-radius: 5px;
         }
 
-        nav ul li a:hover {
+        nav ul li a:hover, nav ul li a.active {
             background-color: #1D84EA;
-            color: #fff;
+            color: white;
         }
 
         footer {
             text-align: center;
             padding: 1em 0;
-            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
+            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
             color: white;
             width: 100%;
             box-sizing: border-box;
@@ -137,14 +137,14 @@
 
         .post-it {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 200px;
+            top: 153px;
+            right: 130px;
+            width: 300px;
             padding: 15px;
             background-color: #d9f99d;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 1.3em;
             text-align: center;
             transform: rotate(-5deg);
             transition: transform 0.3s;
@@ -163,22 +163,78 @@
         .spotify-logo:hover {
             transform: scale(1.1);
         }
+
+        img.logo {
+            height: 50px;
+            width: auto;
+            max-width: 30%;
+        }
+
+        /* Media Queries para pantallas pequeñas */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            header {
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center; /* Centra los elementos del menú horizontalmente */
+            }
+
+            nav ul li {
+                margin: 5px 0; /* Ajusta el margen vertical entre los ítems de la lista */
+            }
+
+             .post-it {
+                position:absolute; /* Cambia la posición para que no se solape con otros elementos */
+                width: auto;
+                transform: none;
+                margin: 237px auto; /* Centra el post-it y ajusta el margen */
+                margin-right: -10em;
+                            font-size: 0.8em;
+                                        width: 103px;
+                                                    padding: 8px;
+                                                    transform: rotate(-23deg);
+            transition: transform 0.3s;
+
+
+            }
+
+            .spotify-container iframe {
+                height: 250px; /* Reduce la altura del iframe para pantallas pequeñas */
+            }
+            
+            .info {
+                font-size: 1em; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+            }
+
+            h1 {
+                font-size: 1.8em; /* Ajusta el tamaño de fuente para el encabezado */
+            }
+
+            img.logo {
+                max-width: 50%; /* Aumenta el tamaño máximo del logo para pantallas pequeñas */
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                                 <img src="logof.png" alt="Logo" style="height: 50px;">
+                <img src="Logof.png" alt="Logo" class="logo">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="director.html">Acerca del Director</a></li>
                 <li><a href="valores.html">Valores</a></li>
                 <li><a href="proposito.html">Propósito</a></li>
                 <li><a href="musicos.html">Músicos y Colaboradores</a></li>
-                                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-
             </ul>
         </nav>
     </header>
@@ -186,7 +242,6 @@
         <h1>Ven y conoce nuestra música.<span></span></h1>
         <div class="spotify-container">
             <img class="spotify-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify Logo">
-            <!-- Reemplaza el src con la URL de la canción de Spotify -->
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3V5S35WsvCAAWMJcccLb9s?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
         <div class="info">
@@ -194,13 +249,15 @@
         </div>
     </main>
     <footer>
-          <!-- Derechos reservados -->
-  <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
-    <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
-  </div>
+        <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
+            <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
+        </div>
     </footer>
     <div class="post-it">
         Toda nuestra música disponible en Spotify
     </div>
 </body>
 </html>
+
+
+

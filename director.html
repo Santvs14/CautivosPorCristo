@@ -4,18 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acerca del Director</title>
-    <link rel="icon" href="logof.png" type="image/png">
+    <link rel="icon" href="Logof.png" type="image/png">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Roboto:300,400,500,700" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
+       body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
             background: #f4f4f4;
         }
+
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 767px) {
+    body {
+        font-size: 14px; /* Tamaño de fuente para pantallas pequeñas */
+    }
+    nav ul li {
+        margin: 0 2px; /* Reduce aún más el margen en pantallas pequeñas */
+    }
+    nav ul li a {
+        font-size: 0.9em; /* Tamaño de fuente más pequeño para ítems del menú */
+    }
+    .newspaper {
+        column-count: 1; /* Usa una columna en pantallas pequeñas */
+        
+    }
+}
+
+/* Estilos para pantallas medianas */
+@media (min-width: 768px) {
+    body {
+        font-size: 16px; /* Tamaño de fuente para pantallas medianas */
+    }
+    nav ul li {
+        margin: 0 5px; /* Margen estándar para pantallas medianas */
+    }
+    nav ul li a {
+        font-size: 1em; /* Tamaño de fuente estándar para ítems del menú */
+    }
+    .newspaper {
+        column-count: 2; /* Dos columnas en pantallas medianas */
+    }
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width:923px) {
+    body {
+        font-size: 18px; /* Tamaño de fuente para pantallas grandes */
+    }
+    nav ul li {
+        margin: 0 10px; /* Margen más amplio en pantallas grandes */
+    }
+    nav ul li a {
+        font-size: 1em; /* Tamaño de fuente mayor para ítems del menú */
+    }
+    .newspaper {
+        column-count: 2; /* Mantiene dos columnas en pantallas grandes */
+    }
+}
+
+
+
+@media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul li a {
+                padding: 10px;
+            }
+        }
+        
         header {
-            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
+            background: linear-gradient(45deg,#1E3A5F,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
             color: white;
             padding: 1em 0;
             text-align: center;
@@ -23,26 +89,32 @@
             width: 100%;
             box-sizing: border-box;
         }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-        nav ul li a {
-            color: white;
-            padding: 15px 20px;
-            display: inline-block;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-       nav ul li a:hover, nav ul li a.active {
+     nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    justify-content: center; /* Centra los elementos horizontalmente */
+}
+
+ nav ul li {
+    margin: -12px 10px;
+}
+
+nav ul li a {
+    color: white;
+    padding: 12px 18px;
+    text-decoration: none;
+    font-size: 1em;
+}
+ nav ul li a:hover, nav ul li a.active {
             background-color: #1D84EA;
             color: white;
+            border-radius: 8px;
         }
+
+
         main {
             max-width: 1200px;
             margin: 0 auto;
@@ -59,7 +131,7 @@
         }
         .newspaper img {
             width: 100%;
-            max-width: 300px;
+            max-width: 290px;
             height: auto;
             margin: 10px 0;
             float: left;
@@ -81,13 +153,24 @@ background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); 
             width: 100%;
             box-sizing: border-box;
         }
+
+         img.logo {
+    height: 50px; /* Fija la altura de la imagen */
+    width: auto;  /* Ajusta el ancho automáticamente para mantener la proporción */
+    max-width: 20%; /* Asegura que la imagen no exceda el ancho de su contenedor */
+
+
+}
+
+
     </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                 <img src="logof.png" alt="Logo" style="height: 50px;">
+<img src="Logof.png" alt="Logo" class="logo">
+
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="director.html" class="active">Acerca del Director</a></li>

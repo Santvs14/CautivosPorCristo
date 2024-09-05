@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propósito</title>
-        <link rel="icon" href="logof.png" type="image/png">
+    <link rel="icon" href="Logof.png" type="image/png">
 
     <!-- Cargar fuentes de Google -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Roboto:300,400,500,700" rel="stylesheet">
@@ -15,12 +15,25 @@
             padding: 0;
             color: #333;
             background: #f4f4f4;
+            font-size: 16px; /* Tamaño de fuente por defecto */
+        }
+
+        /* Estilos para pantallas medianas */
+        @media (min-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+        }
+
+        /* Estilos para pantallas grandes */
+        @media (min-width: 1024px) {
+            /* No se requiere ajuste adicional para pantallas grandes */
         }
 
         header {
-            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
-            color: white;
+            background: linear-gradient(45deg,#1E3A5F,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
             padding: 1em 0;
+            color: white;
             text-align: center;
             position: relative;
             width: 100%;
@@ -28,33 +41,31 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        nav ul {
+       nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 20px;
+            flex-wrap: wrap; /* Permite el ajuste en múltiples líneas si es necesario */
         }
 
         nav ul li {
-            margin: 0 10px;
+            margin: 0 10px; /* Margen horizontal entre ítems */
         }
 
         nav ul li a {
             color: white;
-            padding: 10px 20px;
-            display: inline-block;
+            padding: 15px 20px;
             text-decoration: none;
-            font-size: 1.1em;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-            border-radius: 5px;
+            font-size: 1em;
         }
 
         nav ul li a:hover, nav ul li a.active {
             background-color: #1D84EA;
             color: white;
+            border-radius: 8px;
         }
 
         main {
@@ -101,17 +112,15 @@
         }
 
         footer {
-             text-align: center;
+            text-align: center;
             padding: 1em 0;
-            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
+            background: linear-gradient(45deg,#1E3A5F,#1E3A5F, #4682B4, #1E3A5F, #89CFF0); 
             color: white;
             margin-top: 30px;
             position: relative;
             width: 100%;
             box-sizing: border-box;
-            
             height: 5em;
-
         }
 
         footer p {
@@ -129,13 +138,22 @@
                 padding: 10px;
             }
         }
+
+         img.logo {
+    height: 50px; /* Fija la altura de la imagen */
+    width: auto;  /* Ajusta el ancho automáticamente para mantener la proporción */
+    max-width: 20%; /* Asegura que la imagen no exceda el ancho de su contenedor */
+
+
+}
+
     </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                 <img src="logof.png" alt="Logo" style="height: 50px;">
+                <img src="Logof.png" alt="Logo" class="logo">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="director.html">Acerca del Director</a></li>
@@ -144,7 +162,6 @@
                 <li><a href="musicos.html">Músicos y Colaboradores</a></li>
                 <li><a href="noticias.html">Noticias</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-
             </ul>
         </nav>
     </header>
@@ -154,10 +171,11 @@
                 Propósito
                 <span></span>
             </h1>
-            <img src="cautivos.png" alt="Logo" style="width: 143px; height: 153px;position: relative; ">
-            <p><strong>Cautivos por Cristo</strong> es una agrupación musical cristiana, que su nombre está fundamentado en la cita bíblica que dice:Derribando argumentos y toda altivez que se levanta contra el conocimiento de Dios, y llevando cautivo todo pensamiento a la obediencia a Cristo.</br>2 Corintios 10:5 </p>
+            <img src="cautivos2.png" alt="Logo" style="width: 203px; height: 203px; position: relative;">
+            <p><strong>Cautivos por Cristo</strong> es una agrupación musical cristiana, que su nombre está fundamentado en la cita bíblica que dice: Derribando argumentos y toda altivez que se levanta contra el conocimiento de Dios, y llevando cautivo todo pensamiento a la obediencia a Cristo
+                <strong>2 Corintios 10:5.</strong> </p>
             
-            <p>Es fundada por el licenciado Emmanuel Polanco Feliz,  quien es de profesión, periodista, ejerce la labor de  docente del Sistema educativo dominicano, es músico, compositor, y maestro del área de Educación Artística.</p>
+            <p>Es fundada por el licenciado Emmanuel Polanco Feliz, quien es de profesión periodista, ejerce la labor de docente del Sistema educativo dominicano, es músico, compositor y maestro del área de Educación Artística.</p>
             <p>Es un ministerio evangelístico musical dedicado al canto y la predicación del evangelio del Señor Jesucristo a todo público.</p>
             <p>Su orientación musical es variada y diversa. Adopta varios géneros musicales tales como: Rock, pop, Rock-pop, Bolero, Merengue, balada, son, jazz, blues, fusiones, entre otros géneros musicales.</p>
             <p>También como estilo interpretativo dentro de sus presentaciones ocupa un espacio no menos importante para la difusión de la doctrina cristiana y la propagación del cristianismo, a través de la predicación del evangelio, el cual es su enfoque principal.</p>
@@ -165,11 +183,11 @@
         </section>
     </main>
     <footer>
- <!-- Derechos reservados -->
-  <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
-    <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
-  </div>
-            <script src="script.js"></script>
+        <!-- Derechos reservados -->
+        <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
+            <p>&copy; 2024 Cautivos por Cristo. <strong style="color:black;">Todos los derechos reservados.</strong></p>
+        </div>
+        <script src="script.js"></script>
     </footer>
 </body>
 </html>

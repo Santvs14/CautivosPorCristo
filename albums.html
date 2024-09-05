@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Álbumes de Facebook</title>
-  <link rel="icon" href="logof.png" type="image/png">
+  <link rel="icon" href="Logof.png" type="image/png">
   <style>
     /* Estilos generales */
     body {
@@ -18,8 +18,31 @@
       min-height: 100vh;
     }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+    /* Estilos para pantallas pequeñas */
+    body {
+      font-size: 16px;
+    }
+
+    /* Estilos para pantallas medianas */
+    @media (min-width: 768px) {
+      body {
+        font-size: 18px;
+      }
+    }
+
+    /* Estilos para pantallas grandes */
+    @media (min-width: 1024px) {
+      body {
+        font-size: 14px;
+      }
+    }
+
     header {
-      background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
+      background: linear-gradient(45deg,#1E3A5F, #1E3A5F, #4682B4, #1E3A5F, #89CFF0);
       padding: 1em 0;
       color: white;
       text-align: center;
@@ -38,6 +61,7 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap; /* Permite que los elementos se ajusten en múltiples líneas si es necesario */
     }
 
     nav ul li {
@@ -50,13 +74,13 @@
       text-decoration: none;
       font-size: 1em;
       transition: background 0.3s, color 0.3s;
+      border-radius: 8px;
     }
 
     nav ul li a.active,
     nav ul li a:hover {
       background: #1D84EA;
       color: white;
-      border-radius: 8px;
     }
 
     footer {
@@ -163,13 +187,48 @@
     .lightbox:target {
       display: flex;
     }
+
+    /* Media Queries para pantallas pequeñas */
+    @media (max-width: 768px) {
+      body {
+        font-size: 14px;
+      }
+
+      header {
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center; /* Centra los elementos del menú horizontalmente */
+        gap: 10px; /* Ajusta el espacio entre los elementos del menú */
+      }
+
+      nav ul li {
+        display: block; /* Asegura que los elementos se muestren en una columna */
+      }
+
+      img {
+        height: 50px;
+        margin-bottom: 10px; /* Añade espacio debajo del logo */
+      }
+
+      .album {
+        width: 100%; /* Asegura que las tarjetas de álbum se ajusten en pantallas pequeñas */
+        max-width: 320px; /* Limita el ancho máximo para mantener un diseño ordenado */
+      }
+
+      .albums-container {
+        gap: 10px; /* Reduce el espacio entre los álbumes en pantallas pequeñas */
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <nav>
       <ul>
-        <img src="logof.png" alt="Logo" style="height: 50px; right: 93px; position: relative;">
+        <img src="Logof.png" alt="Logo" style="height: 50px; margin-bottom: 10px;">
         <li><a href="index.html" class="active">Inicio</a></li>
         <li><a href="nosotros.html">Nosotros</a></li>
         <li><a href="director.html">Acerca del Director</a></li>
@@ -178,7 +237,6 @@
         <li><a href="musicos.html">Músicos y Colaboradores</a></li>
         <li><a href="noticias.html">Noticias</a></li>
         <li><a href="contacto.html">Contacto</a></li>
-
       </ul>
     </nav>
   </header>
@@ -200,7 +258,7 @@
       const accessToken = 'EAAL1N5kslU0BOZCADRPMtr8MF4pA1IRq443MATZCVvb5XVW3Gsa7qLP8UNMtHuZAa19u6hOiYzbVZCsAjBCnI4BaZCY1mXZCKixGH8Lk5jPwwDOKDrkSTfm2ZALSEe9Tf1sEZAHqCCAgaCbT4FYaNxZAvGFKuuOxTioNzOpnVpV1PM5NYnKjEURF6Bl5O';
       const url = `https://graph.facebook.com/v12.0/${pageId}/albums?fields=id,name,description,photos{picture,source},created_time&access_token=${accessToken}`;
 
-     fetch(url)
+      fetch(url)
         .then(response => response.json())
         .then(data => {
           console.log('Albums data:', data);

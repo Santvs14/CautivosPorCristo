@@ -3,28 +3,31 @@
 <head>
     <title>Cautivos por Cristo - Inicio</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="icon" href="logof.png" type="image/png">
+      <link rel="icon" href="Logof.png" type="image/png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
 
+ .btn {
+    background: darkred;
+    color: white;
+    padding: 5px 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    opacity: 0.7;
+    position: fixed;
+
+    top: 10px; /* Ajustado para que esté en la parte superior */
+    right: 16px; /* Ajustado para que esté en la parte derecha */
+
+}
 
 
-     .btn {
-            background: darkred;
-            color: white;
-            padding: 5px 5px;
-            text-decoration: none;
-            border-radius: 5px;
-            opacity: 0.7;
-            margin-top: 50px;
-            position: relative;
-            top: -21em;
-            left: 52em;
 
-        }
 
         .btn:hover{
 
@@ -36,8 +39,9 @@
    .nav {
     background: black;
     margin: 0;
-    max-height: 17px;
+    max-height: 60px;
         padding: 0; /* Asegura que no haya relleno adicional */
+
 
 
 }
@@ -48,44 +52,60 @@
             background: url('map-placeholder.jpg') no-repeat center center/cover;
         }
 
-
-
+/* Estilos generales para pantallas grandes */
 .nav ul {
-            list-style: none;
-background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            
-            position: relative;
-            top: -5em;
-            height: 93px;
-            justify-content: center;
+    list-style: none;
+    background: linear-gradient(45deg,#1E3A5F,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    top: -5em;
+    height: 243px;
+    justify-content: center;
+}
+
+.nav ul li {
+    display: inline-block;
+    position: relative;
+    margin: 0 5px;
+    top: 1em;
+        text-align: center;
+}
+
+.nav ul li a {
+    color: white;
+    padding: 15px 20px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.3em;
+}
+
+/* Estilos específicos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .nav ul {
+        height: auto;
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(45deg,#1E3A5F,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
+        top: 0;
+    }
+
+    .nav ul li {
+        display: block;
+        margin: 0;
+    }
+
+    .nav ul li a {
+        padding: 15px;
+        font-size: 1.1em;
+    }
+}
 
 
-        }
-
-        .nav ul li {
-            display: inline-block;
-            position: relative;
-            margin: 0 5px;
-            top: 1em;
-        }
-
-        .nav ul li a {
-            color: white;
-            padding: 15px 20px;
-            display: inline-block;
-            text-decoration: none;
-            font-size: 1.3em;
-        }
-
-        .nav ul li a:hover {
-            background: #1D84EA;
-            border-radius: 5px;
-        }
-
-        .submenu-items {
+   .submenu-items {
             display: none;
             left: 0;
             background: #1e3d7c;
@@ -110,6 +130,13 @@ background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
 
         }
 
+        .nav ul li a:hover {
+            background: #1D84EA;
+            border-radius: 5px;
+        }
+
+     
+
         .submenu-items li a:hover {
             background: #ff6347;
 
@@ -120,22 +147,32 @@ background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
             position: relative;
             top: 1em;
         }
-    .carousel,
-    .carousel-inner,
-    .carousel-inner > .item > img {
-        height: 93vh; /* Ajusta la altura para cubrir 65% de la pantalla */
-        width: 100%;
-            margin: 0; /* Asegura que no haya margen adicional */
+   .carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que las imágenes cubran el contenedor sin distorsión */
+}
+
+    .carousel-inner {
+    height: 100%; /* Asegura que el contenedor interno ocupe toda la altura del contenedor principal */
+}
+
+.carousel {
+    height: 570px; /* Ajusta la altura según tus necesidades */
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que las imágenes cubran el contenedor sin distorsión */
+}
 
 
-    }
 
-    .carousel-inner > .item > img {
-        object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
-        height: 100%; /* Cubre toda la altura del contenedor */
-        width: 100%; /* Cubre toda la anchura del contenedor */
-
-    }
 
     .carousel-caption {
         color: #fff;
@@ -151,13 +188,38 @@ background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
     overflow-x: hidden; /* Mantiene el scroll horizontal */
 
 
+
     }
+
+/* Estilos para pantallas pequeñas */
+body {
+  font-size: 16px;
+}
+
+/* Estilos para pantallas medianas */
+@media (min-width: 768px) {
+
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1024px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+
+
 
     .container {
         padding: 0;
         width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
             margin: 0; /* Asegura que no haya margen adicional */
-                max-height: 450px;
+            max-width: 100%; /* Se asegura de que el logo no se salga de la pantalla */
+                overflow: hidden;
+
+
+
 
     }
 
@@ -180,7 +242,7 @@ background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
             font-size: 1.5em;
                         color: white;
                         position: relative;
-                        left: 14em;
+                        left: 12em;
                         top: 3em;
         }
 
@@ -236,6 +298,7 @@ background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
         .gallery img {
             width: 270px;
             height: 270px;
+
            
         }
 
@@ -263,6 +326,7 @@ background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
             width: 100%;
             height: 100%;
             object-fit: cover;
+            margin: 0;
            
         }
 
@@ -315,6 +379,9 @@ background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
     padding: 40px 0;
     text-align: center;
     position: relative;
+
+top: -1em;
+margin-bottom: -3em;
 
 
 }
@@ -461,6 +528,97 @@ background: url('cuadros.jpg') no-repeat center center; /* Establece la imagen d
 .flyer-container:hover .flyer {
     transform: rotateY(180deg); /* Rota la tarjeta en hover */
 }
+/* CSS para ajustar las imágenes de actividades en pantallas pequeñas */
+/* Estilos específicos para pantallas pequeñas */
+@media (max-width: 767px) {
+    .event-gallery .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .event-gallery .image-container {
+        padding: 5px;
+    }
+
+    .event-gallery .image-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+@media (max-width: 767px) {
+
+
+
+}
+
+@media only screen and (max-width: 768px) {
+    .carousel-container {
+        display: none;
+    }
+
+
+
+
+}
+
+@media only screen and (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    nav a {
+        margin: 20px 0; /* Añade espacio entre los elementos del menú */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .Logo,img {
+        max-width: 80%; /* Ajusta según el tamaño que prefieras en móviles */
+        height: auto;
+    }
+}
+
+/* Estilo para pantallas de escritorio */
+.logo {
+    width: 100%;
+            max-width: 100%; /* Se asegura de que el logo no se salga de la pantalla */
+    
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+        overflow: hidden; /* Para asegurarnos de que el contenido no se desborde */
+
+
+    opacity: 0.7;
+}
+
+/* Estilo para pantallas móviles */
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: 30%;
+        top: 16px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .nav ul {
+        flex-direction: column;
+        height: auto; /* Ajusta la altura */
+        text-align: left; /* Alineación a la izquierda */
+    }
+
+    .nav ul li {
+        display: block;
+        margin: 5px 0; /* Espaciado entre elementos del menú */
+    }
+
+    .nav ul li a {
+        padding: 10px;
+        font-size: 1.2em;
+    }
+}
 
 
   </style>
@@ -481,26 +639,27 @@ background: url('cuadros.jpg') no-repeat center center; /* Establece la imagen d
 
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="fondo1.jpg" alt="Fondo 1"> 
+        <img src="fondo1.jpg " alt="Fondo 1" style="height: 50em;"> 
         <div class="carousel-caption d-none d-md-block">
-          <h3>Fondo 1</h3>
-          <p>Descripción de Fondo 1</p>
+          <h3></h3>
+          <p></p>
+
         </div>
       </div>
 
       <div class="item">
         <img src="carro1.png" alt="Carro"> 
         <div class="carousel-caption d-none d-md-block">
-          <h3>Carro</h3>
-          <p>Descripción de Carro</p>
+          <h3></h3>
+          <p></p>
         </div>
       </div>
 
       <div class="item">
         <img src="adora.jpg" alt="Adora"> 
         <div class="carousel-caption d-none d-md-block">
-          <h3>Adora</h3>
-          <p>Descripción de Adora</p>
+          <h3></h3>
+          <p></p>
         </div>
       </div>
     </div>
@@ -515,7 +674,12 @@ background: url('cuadros.jpg') no-repeat center center; /* Establece la imagen d
     </a>
   </div>
 </div>
- <img src="logoc.png" alt="Logo" style="width: 963px; height: 293px;position: relative; top: -480px; left: 33em;">
+
+
+<div style="position: relative; top: -565px ">
+    <img src="cautivos.png" alt="Logo" style="width: 733px; height: 173px; position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 1000; overflow: hidden;" >
+</div>
+
             <a href="https://youtube.com/live/rsH2A7SqcP0?feature=share" class="btn" target="_blank">
                 <i class="fas fa-broadcast-tower"></i> Transmisión en Vivo
             </a>
@@ -547,7 +711,7 @@ background: url('cuadros.jpg') no-repeat center center; /* Establece la imagen d
         <section class="events-section">
 
             <div class="container">
-                <h2 style="position: relative; top:-1em;">Trasmisiones Programadas</h2>
+                <h2 style="position: relative; top:-0.5em;">Trasmisiones Programadas</h2>
                 <div class="events-list-container">
                     <div id="eventsList">
                         <!-- Se actualizará con los eventos en vivo -->
@@ -560,7 +724,7 @@ background: url('cuadros.jpg') no-repeat center center; /* Establece la imagen d
             <div class="container">
                 <h2>Ministerio de adoración </h2>
                 <h2>se presenta para adorar al creador.</h2>
-<iframe width="1290" height="729" src="https://www.youtube.com/embed/Je5OLDt3-W4" title="A su Gloria y Majestad.  video oficial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/IzjdWpWeysU" title="Así son nuestros ensayos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
             </div>
@@ -594,19 +758,7 @@ background: url('cuadros.jpg') no-repeat center center; /* Establece la imagen d
                     <img src="act6.jpeg" alt="Descripción de la imagen 6" style="border-radius: 8px; border: 2px solid #321;">
                     <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
                 </div>
-                <div class="image-container">
-                    <img src="act7.jpeg" alt="Descripción de la imagen 7" style="border-radius: 8px; border: 2px solid #321;">
-                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
-                </div>
-                <div class="image-container">
-                    <img src="act8.jpeg" alt="Descripción de la imagen 8" style="border-radius: 8px; border: 2px solid #321;">
-                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
-                </div>
                
-                <div class="image-container">
-                    <img src="act9.jpeg" alt="Descripción de la imagen 9" style="border-radius: 8px; border: 2px solid #321;">
-                    <div class="overlay">Concierto de lanzamiento de Cautivos Por Cristo.</div>
-                </div>
                
                
                 </div>
@@ -658,46 +810,139 @@ background: url('cuadros.jpg') no-repeat center center; /* Establece la imagen d
         
     </main>
     
-   <footer style="background-color: #333; padding: 20px;">
-  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+  <footer style="background-color: #333; padding: 20px;">
+  <div style="text-align: center;">
     
     <!-- Sección de patrocinadores -->
-    <div style="flex: 1;">
-      <h3 style="margin-top: 0; left: 8em; position: relative; top: 6em; font-size:1em">Patrocinados por:</h3>
-      <ul style="list-style: none; padding: 0; display: flex; gap: 12px; position: relative; top: 3em; left: 46em; ">
-        <li><img src="pa1.jpg" alt="Patrocinador 1" style="max-height: 57px; border-radius: 10px;"></li>
-        <li><img src="pa2.jpg" alt="Patrocinador 2" style="max-height: 57px; border-radius: 10px;"></li>
-        <li><img src="pa3.jpg" alt="Patrocinador 3" style="max-height: 57px; border-radius: 10px;" ></li>
-        <li><img src="pa4.jpg" alt="Patrocinador 4" style="max-height: 57px; border-radius: 10px;"></li>
-        <li><img src="pa5.jpg" alt="Patrocinador 5" style="max-height: 57px; border-radius: 10px;"></li>
-        <li><img src="pa6.jpg" alt="Patrocinador 6" style="max-height: 57px; border-radius: 10px;"></li>
-        <li><img src="pa7.jpg" alt="Patrocinador 7" style="max-height: 57px; border-radius: 10px;"></li>
-
+    <div>
+      <h3 style="margin-top: 0; font-size: 1em; color: white;">Patrocinados por:</h3>
+      <ul style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 12px;">
+        <li><img src="pa1.jpg" alt="Patrocinador 1" style="max-height: 53px; border-radius: 10px;"></li>
+        <li><img src="pa2.jpg" alt="Patrocinador 2" style="max-height: 53px; border-radius: 10px;"></li>
+        <li><img src="pa3.jpg" alt="Patrocinador 3" style="max-height: 53px; border-radius: 10px;"></li>
+        <li><img src="pa4.jpg" alt="Patrocinador 4" style="max-height: 53px; border-radius: 10px;"></li>
+        <li><img src="pa5.jpg" alt="Patrocinador 5" style="max-height: 53px; border-radius: 10px;"></li>
+        <li><img src="pa6.jpg" alt="Patrocinador 6" style="max-height: 53px; border-radius: 10px;"></li>
+        <li><img src="pa7.jpg" alt="Patrocinador 7" style="max-height: 53px; border-radius: 10px;"></li>
+        <li><img src="pa8.jpeg" alt="Patrocinador 8" style="max-height: 53px; border-radius: 10px;"></li>
       </ul>
     </div>
-    
-    <!-- Sección de promoción de artículos -->
-    <div style="flex: 1; text-align: right;">
-      <h3 style="margin-top: 0;">Conoce nuestros Artículos</h3>
-      <p>Descubre la variedad que tenemos...</p>
-      <a href="articulos.html" style="text-decoration: none; color: #007BFF;">Ver artículos</a>
+
+    <!-- Derechos reservados -->
+    <div style="margin-top: 18px; font-size: 1.3em;">
+      <p>&copy; 2024 Cautivos por Cristo.<strong style="color:#007BFF;">Todos los derechos reservados.</strong></p>
     </div>
+    
   </div>
+
+  <!-- Sección de promoción de artículos -->
+  <div style="text-align: right;">
+    <h3 style="margin-top: 0; color:orange;">Conoce Nuestros <br>Artículos</h3>
+    <p>Descubre la variedad que tenemos...</p>
+    <a href="articulos.html" style="text-decoration: none; color: #007BFF; font-size: 1.5em;">Ver artículos</a>
+  </div>
+
+
+    
+  <!-- Publicidad Flotante Mejorada -->
+<div id="publicidadFlotante" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  padding: 20px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  z-index: -1000;
+  max-width: 300px;
+  animation: slideIn 1s ease-out;
+  font-family: 'Arial', sans-serif;
+  ">
+  <h3 style="margin-top: 0; font-size: 1.5em; letter-spacing: 0.5px;">🔥 Conoce Nuestros Artículos</h3>
+  <p style="margin: 10px 0;">Descubre la variedad que tenemos... No te lo pierdas!</p>
+  <a href="articulos.html" style="
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #ff6f61;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  ">Ver artículos</a>
+  <button id="cerrarPublicidad" style="
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+  ">&times;</button>
+</div>
+
   
-  <!-- Derechos reservados -->
-  <div style="text-align: center; margin-top: 18px; font-size: 1.3em; position: relative; top: -5.3em;">
-    <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
-  </div>
+
 
 </footer>
 
  <script>
+// Obtén el logo
+        const logo = document.querySelector('.logo');
 
- $(document).ready(function() {
-      $('.carousel').carousel({
-        interval: 6000 // Intervalo de 3 segundos
-      });
+        // Variables para controlar el scroll
+        let lastScrollTop = 0;
+        const delta = 5; // Mínimo desplazamiento para considerar como scroll
+
+        window.addEventListener('scroll', () => {
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (Math.abs(lastScrollTop - currentScrollTop) >= delta) {
+                if (currentScrollTop > lastScrollTop) {
+                    // Desaparecer el logo al desplazarse hacia abajo
+                    logo.style.opacity = '0';
+                    logo.style.transform = 'translateX(-50%) translateY(-100px)'; // Opcional: Desplazamiento adicional
+                } else {
+                    // Aparecer el logo al desplazarse hacia arriba
+                    logo.style.opacity = '1';
+                    logo.style.transform = 'translateX(-50%)'; // Restaurar la posición original
+                }
+                lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Para evitar números negativos
+            }
+        });
+// Cerrar la publicidad cuando se haga clic en el botón de cerrar
+  document.getElementById('cerrarPublicidad').onclick = function() {
+    document.getElementById('publicidadFlotante').style.display = 'none';
+  };
+
+$(document).ready(function() {
+    $('.carousel').carousel({
+        interval: 4000
     });
+
+    function adjustCarouselHeight() {
+        var $carouselInner = $('.carousel-inner');
+        var $activeItem = $carouselInner.find('.item.active');
+        var newHeight = $activeItem.height();
+        $carouselInner.css('height', newHeight + 'px');
+    }
+
+    // Ajusta la altura al iniciar el carrusel
+    adjustCarouselHeight();
+
+    // Ajusta la altura al cambiar de imagen
+    $('.carousel').on('slid.bs.carousel', function() {
+        adjustCarouselHeight();
+    });
+
+    // Ajusta la altura en redimensionamientos de ventana
+    $(window).resize(function() {
+        adjustCarouselHeight();
+    });
+});
+
 
 
 async function fetchNextLiveStream() {
@@ -755,7 +1000,7 @@ async function fetchNextLiveStream() {
         }
     } catch (error) {
         console.error('Error fetching live stream data:', error); // Log para ver errores
-        document.getElementById('eventsList').innerText = 'Error al obtener datos';
+        document.getElementById('eventsList').innerText = 'Se agotó el  limite de numeros de solicitudes por dia al servidor de prueba.';
     }
 }
 
@@ -764,3 +1009,4 @@ window.onload = fetchNextLiveStream;
 </script>
 </body>
 </html>
+

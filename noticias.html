@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noticias - Cautivos por Cristo</title>
-    <link rel="icon" href="logof.png" type="image/png">
+    <link rel="icon" href="Logof.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Roboto:300,400,500,700" rel="stylesheet">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-storage-compat.js"></script>
+
     <style>
-        /* Estilos CSS */
+      /* Estilos generales */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
             background: #f4f4f4;
+            font-size: 16px; /* Tamaño de fuente por defecto */
         }
 
+        /* Estilos para pantallas medianas */
+        @media (min-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+        }
+
+        /* Encabezado */
         header {
-            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
-            padding: 10px;
+            background: linear-gradient(45deg,#1E3A5F,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
+            padding: 1em 0;
             color: white;
-            padding: 1.5em 0;
             text-align: center;
-            position: sticky;
-            top: 0;
+            position: relative;
             width: 100%;
             box-sizing: border-box;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         nav ul {
@@ -45,13 +52,12 @@
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 18px;
-            position: relative;
-            right: 23px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         nav ul li {
-            display: inline;
+            margin: 0 10px;
         }
 
         nav ul li a {
@@ -71,34 +77,31 @@
             transform: scale(1.05);
         }
 
-        .auth-button {
-            background-color: #1e3d7c;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            position: relative;
-            width: 60px;
-            left: 193px;
+
+@media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul li a {
+                padding: 10px;
+            }
         }
 
-        .auth-button:hover {
-            background-color: #1D84EA;
-            transform: scale(1.05);
-        }
 
+
+        /* Contenido principal */
         main {
             padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        /* Sección Hero */
         .hero {
             text-align: center;
-            padding: 40px;
+            padding: 20px;
             background: #1e3d7c;
             color: white;
             border-radius: 10px;
@@ -107,61 +110,209 @@
         }
 
         .hero h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             margin: 0;
         }
 
         .hero p {
-            font-size: 1.5em;
+            font-size: 1.2em;
             margin: 10px 0 0;
         }
 
-        .news-grid {
+        /* Lista de noticias */
+        .news-list {
+            margin-top: 40px;
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
+                justify-content: space-between;
+            
+                overflow-y: auto; /* Permite el desplazamiento vertical */
+
+                        max-height:70vh; /* Asegura que el contenedor ocupe al menos la altura de la pantalla */
+                        align-items: center;
+
+                         }
+
+
+        
+
+.news-item:hover{
+    background: #5552;
+    max-height: 50vh;
+}
+
+       .news-item {
+    background: white;
+    border-radius: 5px;
+    padding: 15px;
+    width: calc(23.343%); /* Un tercio del ancho sin margen */
+    margin-bottom: 0; /* Elimina el margen inferior */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.news-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+        .news-item:hover {
+            transform: scale(1.02);
         }
 
-        .news-card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 300px;
-            transition: transform 0.3s;
-            display: flex;
-            flex-direction: column;
-            max-height: 500px;
+       
 
-        }
-
-        .news-card:hover {
-            transform: scale(1.05);
-        }
-
-        .news-card img {
-            width: 100%;
-            height: auto;
-        }
-
-        .news-card h2 {
-            font-size: 1.5em;
-            color: #1e3d7c;
-            margin: 15px 0;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .news-card p {
-            padding: 0 15px;
-            font-size: 1em;
+        .news-item .date {
+            font-size: 0.9em;
             color: #666;
-            text-align: justify;
-            flex-grow: 1;
+            margin-bottom: 10px;
+        }
+
+        
+       /* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 60px;
+    overflow: hidden;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.modal-body {
+    text-align: justify;
+    line-height: 1.5;
+    font-size: 1.5em;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.modal-body img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    width: 40%; /* Ajustar el ancho de la imagen */
+    border-radius: 5px;
+}
+
+
+        .modal-text {
+            margin-bottom: 20px;
+        }
+
+        .modal-image img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+
+        .close {
+    color: #aaa;
+    font-size: 34px; /* Aumenta el tamaño de la fuente para que la "X" sea más grande */
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: -14px;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.close:hover{
+
+  color: red;
+}
+
+
+        .comments-section {
+            width: 100%;
+            margin-top: 20px;
+
 
         }
 
+        
+
+        .comments-list {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+
+        .comment-item {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #commentName,
+        #commentText {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+               
+
+
+
+        #commentText {
+            height: 80px;
+            resize: vertical;
+        }
+
+        #submitComment {
+            background-color: #1D84EA;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        #submitComment:hover {
+            background-color: #155a8a;
+        }
+
+        /* Post-It */
         .post-it {
             position: fixed;
             top: 173px;
@@ -173,6 +324,7 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
             z-index: 1001;
+            transition: right 0.3s, top 0.3s;
         }
 
         .post-it img {
@@ -181,6 +333,8 @@
             border-radius: 70%;
             margin-bottom: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            left: 1em;
+            position: relative;
         }
 
         .post-it h4 {
@@ -189,234 +343,70 @@
             color: #333;
         }
 
-        footer {
-            text-align: center;
-            padding: 1em 0;
-            background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
-            padding: 10px;
-            color: white;
-            margin-top: 83px;
-            position: relative;
-            width: 100%;
-            box-sizing: border-box;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-        }
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header {
+                padding: 1em 0;
+            }
 
-        .full-article-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-            overflow-y: auto;
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                position: relative; /* Se asegura de que el menú no sea fijo */
+            }
 
-        }
-
-        .full-article-content {
-            background-color: #333;
-            border-radius: 10px;
-            width: 1400px;
-            max-height: 1000px;
-            max-width: 2000px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-              text-align: justify;
-            position: relative;
-            overflow: auto;
-
-        }
-
-        .full-article-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .full-article-content h2 {
-            margin: 0 0 15px;
-            font-size: 2em;
-        }
-
-        .full-article-content p {
-            font-size: 1.1em;
-            line-height: 1.3;
-
-            column-count: 2;
-            column-gap: 23px;
-            margin: 10px 0;
-            
-            color: #000;
-            position: relative;
-
-            background:lightgray ;
-            border-radius: 10px;
-            padding: 1em;
-            
-
-
-        }
-
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 1.5em;
-            background: transparent;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        .comments-list {
-            margin-top: 20px;
-            max-height: 50px;
-        }
-
-        #commentsContainer {
-    padding: 10px 15px;
-    border-top: 1px solid #ddd;
-    background-color: #333;
-    border-radius: 0 0 10px 10px;
-    margin-top: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-height: 300px; /* Ajusta el tamaño según sea necesario */
-    max-width: 393px;
-    overflow-y: auto; /* Para permitir el desplazamiento si hay muchos comentarios */
-
-
+nav ul li {
+    margin: -12px 10px;
 }
 
-#commentsContainer h3 {
-    margin: 0 0 15px;
-    font-size: 1.5em;
-    color: lightsteelblue;
-    border-bottom: 2px solid lightsteelblue;
-    padding-bottom: 10px;
-    left: 4em;
-    position: relative;
-}
+            .hero h1 {
+                font-size: 2em;
+            }
 
-#commentsList .comment {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+            .hero p {
+                font-size: 1.2em;
+            }
 
+            .news-item {
+                width: calc(100% - 20px);
+            }
+
+            .modal {
+                width: 90%;
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+        }
     
-
-}/* Estilo de cada comentario */
-.comment {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Sombra interna del comentario */
-    position: relative; /* Para que la sombra pueda aparecer correctamente */
-}
-
-/* Sombra entre comentarios */
-.comment:not(:last-of-type) {
-    margin-bottom: 20px; /* Aumenta el espacio entre los comentarios */
-}
+ footer {
+      text-align: center;
+      padding: 1em 0;
+      background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
+      color: white;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: auto;
+    }
 
 
-.comment .comment-author {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-    text-align: justify; /* Justificar el texto del nombre del autor */
-}
 
-.comment .comment-text {
-    font-size: 0.5em;
-    color: #444;
-    text-align: justify; /* Justificar el texto del comentario */
-    margin: 0; /* Asegúrate de que no haya margen adicional que cause desalineación */
-    padding: 0; /* Asegúrate de que no haya padding adicional que cause desalineación */
-    text-indent: 0; /* Eliminar sangría para asegurar una justificación correcta */
-    position: relative;
-    left: 12em;
-}
-
-
-}
-
-#commentForm {
-    display: flex;
-    flex-direction: column;
-    gap: 17px;
-    margin-top: 20px;
-
-}
-
-#commentForm input[type="text"],
-#commentForm textarea {
-    width: 93%; /* Puedes ajustar este valor según tus necesidades */
-    padding: 14px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 1em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s, box-shadow 0.3s;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Asegúrate de que coincida con el resto del estilo de tu sitio */
-
-}
-
-#commentForm input[type="text"]:focus,
-#commentForm textarea:focus {
-    border-color: #1e3d7c;
-    box-shadow: 0 0 8px rgba(30, 61, 124, 0.3);
-    outline: none;
-
-
-}
-
-#commentForm input[type="text"] {
-    height: 40px; /* Puedes ajustar la altura del input según tus necesidades */
-    top: -0.2em;
-    position: relative;
-}
-
-#commentForm textarea {
-    resize: vertical; /* Permite que el usuario ajuste la altura del textarea */
-    min-height: 100px; /* Altura mínima para el textarea */
-    max-height: 300px; /* Altura máxima para el textarea */
-}
-
-
-#commentForm button {
-    align-self: flex-start;
-    padding: 12px 24px;
-    border-radius: 8px;
-    border: none;
-    background-color: #1e3d7c;
-    color: white;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-#commentForm button:hover {
-    background-color: #1D84EA;
-    transform: scale(1.05);
-}
 
     </style>
 </head>
-
 <body>
     <header>
         <nav>
             <ul>
-                <img src="logof.png" alt="Logo" style="height: 50px;">
+                <img src="Logof.png" alt="Logo" style="height: 50px;">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="director.html">Acerca del Director</a></li>
@@ -425,134 +415,204 @@
                 <li><a href="musicos.html">Músicos y Colaboradores</a></li>
                 <li><a href="noticias.html" class="active">Noticias</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
+
+
             </ul>
-            <button class="auth-button" onclick="window.location.href='login.html'">login</button>
         </nav>
     </header>
 
+
     <main>
-        <section class="hero">
+
+<section class="hero">
             <h1>Bienvenidos a Noticias Cautivos por Cristo</h1>
             <p>Las últimas noticias y actualizaciones</p>
         </section>
 
-        <section class="news-grid" id="newsGrid">
-            <!-- Aquí se mostrarán las noticias dinámicamente -->
-        </section>
 
-        <!-- Full Article Popup -->
-        <div id="fullArticleContainer" class="full-article-container">
-            <div id="fullArticleContent" class="full-article-content">
-                <button class="close-button" onclick="closeArticle()">×</button>
-                <img id="fullArticleImage" src="" alt="Imagen de la noticia">
-                <h2 id="fullArticleTitle"></h2>
-                <p id="fullArticleText"></p>
-              
-                <!-- Sección de comentarios -->
-                <div id="commentsContainer">
-                    <h3>Comentarios</h3>
-                    <div id="commentsList"></div>
-                    <form id="commentForm">
-                        <input type="text" id="commentName" placeholder="Nombre" required>
-                        <textarea id="commentText" placeholder="Comentario" required></textarea>
-                        
-                        <button type="submit">Comentar</button>
-                    </form>
-
-                </div>
-            </div>
+        <div class="news-list">
+            <h2>Cargando Noticias...</h2>
+            <!-- Noticias cargadas dinámicamente aquí -->
         </div>
 
-        <div class="post-it">
+ 
+
+    <!-- Modal para ver la noticia completa -->
+    <div id="newsModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-body">
+            <div class="left-column">
+                <div class="modal-header">
+                    <img id="modalImage" src="" alt="Imagen de la noticia">
+                    <div>
+                        <h3 id="modalTitle"></h3>
+                    </div>
+                </div>
+                <div id="modalContent"></div>
+            </div>
+            <div class="right-column">
+                <div class="comments-section">
+                    <h3>Comentarios</h3>
+                    <div id="commentsList" class="comments-list"></div>
+                    <input type="text" id="commentName" placeholder="Tu nombre" required>
+                    <textarea id="commentText" placeholder="Escribe un comentario" required></textarea>
+                    <button id="submitComment">Comentar</button>
+                </div>
+                <div class="post-it">
             <img src="b2.png" alt="Nota">
             <h4>Publicado por: Emanuel Polanco</h4>
         </div>
     </main>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <footer>
-        <!-- Derechos reservados -->
-        <div style="text-align: center; margin-top: 18px; font-size: 1.3em; position: relative;">
-            <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
-        </div>
+         <!-- Derechos reservados -->
+  <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
+    <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
+  </div>
+       
     </footer>
-
     <script>
-        // Función para mostrar el artículo completo
-        function showArticle(news) {
-            document.getElementById('fullArticleImage').src = news.image || '';
-            document.getElementById('fullArticleTitle').innerText = news.title;
-            document.getElementById('fullArticleText').innerText = news.content;
-            document.getElementById('fullArticleContainer').style.display = 'flex';
-            loadComments(news.title);
-            console.log('Mostrando artículo:', news.title);
-        }
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDtyfEs2KrKsb46Cbu1IkHUkAkEqH8DbPc",
+            authDomain: "cautivosporcristo-83d52.firebaseapp.com",
+            databaseURL: "https://cautivosporcristo-83d52-default-rtdb.firebaseio.com",
+            projectId: "cautivosporcristo-83d52",
+            storageBucket: "cautivosporcristo-83d52.appspot.com",
+            messagingSenderId: "154012445021",
+            appId: "1:154012445021:web:0fc2e317eae82d25bb0bf9c",
+            measurementId: "G-T2P5PKHXBN"
+        };
 
-        // Función para cerrar el artículo completo
-        function closeArticle() {
-            document.getElementById('fullArticleContainer').style.display = 'none';
-        }
+        // Inicializar Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
 
-        // Función para cargar y mostrar las noticias guardadas en localStorage desde el archivo editar.html
-        function loadNews() {
-            const newsGrid = document.getElementById('newsGrid');
-            const newsList = JSON.parse(localStorage.getItem('newsList')) || [];
+           function loadNews() {
+    const newsList = document.querySelector('.news-list');
 
-            newsGrid.innerHTML = ''; // Limpiar el grid antes de cargar las noticias
+    db.ref('news').on('value', snapshot => {
+        newsList.innerHTML = ''; // Limpiar la lista antes de volver a cargar
 
-            newsList.forEach(news => {
-                const newsCard = document.createElement('div');
-                newsCard.classList.add('news-card');
-                newsCard.innerHTML = `
-                                    <h2 onclick='showArticle(${JSON.stringify(news).replace(/'/g, "\\'")})'>${news.title}</h2>
+        const newsArray = [];
 
-                    <img src="${news.image || ''}" alt="Imagen de la noticia">
-                    <p>${news.date}</p>
-                    <p>${news.content}</p>
+        snapshot.forEach(childSnapshot => {
+            const news = childSnapshot.val();
+            const newsId = childSnapshot.key;
+            newsArray.push({ id: newsId, ...news });
+        });
 
-                `;
-                newsGrid.appendChild(newsCard);
-            });
-        }
+        // Ordenar las noticias por fecha, de más reciente a más antigua
+        newsArray.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-        // Función para cargar comentarios guardados en localStorage
-        function loadComments(title) {
-            const commentsList = JSON.parse(localStorage.getItem('commentsList')) || {};
-            const comments = commentsList[title] || [];
-            const commentsContainer = document.getElementById('commentsList');
-            commentsContainer.innerHTML = '';
+        // Iterar sobre las noticias ordenadas y agregarlas al DOM
+        newsArray.forEach(news => {
+            const newsItem = document.createElement('div');
+            newsItem.className = 'news-item';
 
-            comments.forEach(comment => {
-                const commentElement = document.createElement('div');
-                commentElement.innerHTML = `<strong>${comment.name}</strong><p>${comment.text}</p>`;
-                commentsContainer.appendChild(commentElement);
-            });
-        }
-
-        // Función para guardar un nuevo comentario en localStorage
-        document.getElementById('commentForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('commentName').value;
-            const text = document.getElementById('commentText').value;
-            const title = document.getElementById('fullArticleTitle').innerText;
-
-            const commentsList = JSON.parse(localStorage.getItem('commentsList')) || {};
-            if (!commentsList[title]) {
-                commentsList[title] = [];
+            // Abreviar el contenido si es muy largo
+            let shortContent = news.content;
+            if (news.content.length > 100) {
+                shortContent = news.content.substring(0, 100) + '... <a href="#" onclick="openModal(\'' + news.id + '\')">Leer más</a>';
             }
 
-            commentsList[title].push({ name, text });
-            localStorage.setItem('commentsList', JSON.stringify(commentsList));
-            loadComments(title);
+            newsItem.innerHTML = `
+                <h3 onclick="openModal('${news.id}')">${news.title}</h3>
+                <p>${shortContent}</p>
+                <div class="date">${news.date}</div>
+                ${news.imageUrl ? `<img src="${news.imageUrl}" alt="Imagen de la noticia">` : ''}
+            `;
 
-            document.getElementById('commentForm').reset();
+            // Insertar la noticia al principio de la lista
+            newsList.prepend(newsItem);
         });
+    });
+}
+function openModal(newsId) {
+    const modal = document.getElementById('newsModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    const modalImage = document.getElementById('modalImage');
+    const commentsList = document.getElementById('commentsList');
+    const commentName = document.getElementById('commentName');
+    const commentText = document.getElementById('commentText');
+    const submitComment = document.getElementById('submitComment');
 
-        // Mostrar las noticias al cargar la página
-        document.addEventListener('DOMContentLoaded', () => {
-            loadNews();
+    db.ref(`news/${newsId}`).once('value').then(snapshot => {
+        const news = snapshot.val();
+        modalTitle.textContent = news.title;
+
+        // Reemplazar saltos de línea dobles con <p> y simples con <br>
+        let formattedContent = news.content
+            .replace(/\n\n/g, '</p><p>')
+            .replace(/\n/g, '<br>');  // Doble <br> para un solo salto de línea visual
+        formattedContent = `<p>${formattedContent}</p>`;
+
+        modalContent.innerHTML = formattedContent;
+        modalImage.src = news.imageUrl || '';
+    });
+
+    db.ref(`comments/${newsId}`).on('value', snapshot => {
+        commentsList.innerHTML = ''; // Limpiar la lista antes de volver a cargar
+
+        snapshot.forEach(childSnapshot => {
+            const comment = childSnapshot.val();
+
+            const commentItem = document.createElement('div');
+            commentItem.className = 'comment-item';
+            commentItem.innerHTML = `
+                <div class="comment-name">${comment.name}</div>
+                <div class="comment-text">${comment.text}</div>
+            `;
+            commentsList.appendChild(commentItem);
         });
+    });
+
+    submitComment.onclick = () => {
+        const name = commentName.value;
+        const text = commentText.value;
+
+        if (name && text) {
+            db.ref(`comments/${newsId}`).push({
+                name: name,
+                text: text
+            }).then(() => {
+                commentName.value = '';
+                commentText.value = '';
+            }).catch(error => {
+                console.error("Error al agregar comentario: ", error);
+            });
+        } else {
+            alert('Por favor, completa ambos campos.');
+        }
+    };
+
+    const closeModal = document.querySelector('.close');
+    closeModal.onclick = () => {
+        modal.style.display = "none";
+    };
+
+    window.onclick = event => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    modal.style.display = "block";
+}
+
+
+        // Cargar noticias al inicio
+        loadNews();
     </script>
 </body>
-
 </html>
+
+
+

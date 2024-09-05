@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería Multimedia</title>
-    <link rel="icon" href="logof.png" type="image/png">
+    <link rel="icon" href="Logof.png" type="image/png">
     <style>
         /* Estilos generales */
         body {
@@ -17,6 +17,9 @@
             flex-direction: column;
             min-height: 100vh;
         }
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
         header {
             background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0); padding: 10px;
@@ -185,7 +188,8 @@
 <body>
     <header>
         <nav>
-            <ul>
+            <ul>   
+                         <img src="Logof.png" alt="Logo" style="height: 50px;">
                 <li><a href="index.html" class="active">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="director.html">Acerca del Director</a></li>
