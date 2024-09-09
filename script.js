@@ -1,3 +1,17 @@
+
+//Desahabita los click derecho para proteger el codigo
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+document.onkeydown = function(e) {
+    if (e.keyCode == 123) { // F12
+        return false;
+    } else if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl+Shift+I
+        return false;
+    }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     const options = {
