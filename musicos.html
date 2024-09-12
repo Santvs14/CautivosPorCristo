@@ -126,21 +126,21 @@ nav ul li a:hover, nav ul li a.active {
 
 /* Estilos del pie de página */
 footer {
-    background: linear-gradient(45deg, #1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
-    padding: 10px;
-    color: white;
-    padding: 1em 0;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
+            text-align: center;
+            padding: 1em 0;
+            background: linear-gradient(45deg,#1E3A5F,#1E3A5F, #4682B4, #1E3A5F, #89CFF0); 
+            color: white;
+            margin-top: 23px;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            height: 6.1em;
+        }
 
-footer p {
-    margin: 0;
-    font-size: 0.9em;
-}
-
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
 footer .social-links {
     margin: 1em 0;
 }
@@ -743,31 +743,14 @@ Además de su talento como compositor y cantante, Oliver destaca por su habilida
         </div>
     </main>
     <footer>
-         <!-- Derechos reservados -->
-  <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
-    <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
-  </div>
+        <!-- Derechos reservados -->
+        <div style="text-align: center; margin-top: 18px; font-size: 1.5em;">
+            <p>&copy; 2024 Cautivos por Cristo. <strong style="color:black;">Todos los derechos reservados.</strong></p>
+        </div>
        
     </footer>
 
     <script>
-
-//Desahabita los click derecho para proteger el codigo
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-});
-
-document.onkeydown = function(e) {
-    if (e.keyCode == 123) { // F12
-        return false;
-    } else if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl+Shift+I
-        return false;
-    }
-};
-
-
-
-
         function openBio(id) {
             document.getElementById(`bio-${id}`).style.display = 'block';
             document.getElementById('overlay').style.display = 'block';

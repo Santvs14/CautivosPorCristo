@@ -387,15 +387,23 @@ nav ul li {
             }
         }
     
- footer {
-      text-align: center;
-      padding: 1em 0;
-      background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
-      color: white;
-      width: 100%;
-      box-sizing: border-box;
-      margin-top: auto;
-    }
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
+    color: white;
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
 
 
 
@@ -478,22 +486,6 @@ nav ul li {
        
     </footer>
     <script>
-
-//Desahabita los click derecho para proteger el codigo
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-});
-
-document.onkeydown = function(e) {
-    if (e.keyCode == 123) { // F12
-        return false;
-    } else if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl+Shift+I
-        return false;
-    }
-};
-
-
-
         // Firebase Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDtyfEs2KrKsb46Cbu1IkHUkAkEqH8DbPc",

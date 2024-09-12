@@ -91,17 +91,21 @@ nav ul li a {
 
 
 
-        footer {
+footer {
             text-align: center;
-            padding: 10px;
-            background: linear-gradient(45deg, #1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
+            padding: 1em 0;
+            background: linear-gradient(45deg,#1E3A5F,#1E3A5F, #4682B4, #1E3A5F, #89CFF0); 
             color: white;
-            margin-top: 20px;
+            margin-top: 30px;
+            position: relative;
             width: 100%;
             box-sizing: border-box;
-            font-size: 1em;
-            position: relative;
-            bottom: 0;
+            height: 5em;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
         }
 
         main {
@@ -251,8 +255,10 @@ nav ul li a {
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
-    </footer>
+        <!-- Derechos reservados -->
+        <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
+            <p>&copy; 2024 Cautivos por Cristo. <strong style="color:black;">Todos los derechos reservados.</strong></p>
+        </div>    </footer>
     <script src="script.js"></script>
 </body>
 </html>

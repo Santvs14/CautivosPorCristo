@@ -83,16 +83,22 @@
       color: white;
     }
 
-    footer {
-      text-align: center;
-      padding: 1em 0;
-      background: linear-gradient(45deg,#1E3A5F, #89CFF0, #4682B4, #1E3A5F, #89CFF0);
-      color: white;
-      width: 100%;
-      box-sizing: border-box;
-      margin-top: auto;
-    }
+footer {
+            text-align: center;
+            padding: 1em 0;
+            background: linear-gradient(45deg,#1E3A5F,#1E3A5F, #4682B4, #1E3A5F, #89CFF0); 
+            color: white;
+            margin-top: 23px;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            height: 6.1em;
+        }
 
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
     main {
       padding: 20px;
       max-width: 1200px;
@@ -245,9 +251,10 @@
     <div id="albums-container" class="albums-container"></div>
   </main>
   <footer>
-    <div style="text-align: center; margin-top: 18px; font-size: 1.3em;">
-      <p>&copy; 2024 Cautivos por Cristo.<strong style="color:black;">Todos los derechos reservados.</strong></p>
-    </div>
+        <!-- Derechos reservados -->
+        <div style="text-align: center; margin-top: 18px; font-size: 1.5em;">
+            <p>&copy; 2024 Cautivos por Cristo. <strong style="color:black;">Todos los derechos reservados.</strong></p>
+        </div>
   </footer>
   <div id="lightbox" class="lightbox">
     <img id="lightbox-image" src="" alt="Ampliar imagen">
