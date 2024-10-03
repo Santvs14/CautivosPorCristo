@@ -516,8 +516,8 @@ footer p {
             newsArray.push({ id: newsId, ...news });
         });
 
-        // Ordenar las noticias por fecha, de más reciente a más antigua
-        newsArray.sort((a, b) => new Date(a.date) - new Date(b.date));
+         // Ordenar las noticias por fecha, de más reciente a más antigua
+        newsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
 
         // Iterar sobre las noticias ordenadas y agregarlas al DOM
         newsArray.forEach(news => {
